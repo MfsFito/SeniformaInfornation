@@ -1,0 +1,262 @@
+/* ── 1. CSS Variables ──────────────────────────────────────── */
+:root {
+  --bg-primary:   #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-muted:   #64748b;
+  --accent-blue:  #1565C0;
+  --border-color: #e2e8f0;
+}
+
+/* ── 2. Base Reset & Defaults ──────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+/* ── 3. Grid Background Decoration ────────────────────────── */
+.grid-wrapper {
+  position: relative;
+  background-color: #f8fafc;
+}
+
+.grid-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right,  #e2e8f0 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  background-size: 20px 30px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+}
+
+/* ── 4. Clean Card Component ───────────────────────────────── */
+.clean-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 4px  6px -1px rgba(0, 0, 0, 0.05),
+    0 2px  4px -2px rgba(0, 0, 0, 0.025);
+  transition: all 0.2s ease;
+}
+
+.clean-card:hover {
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 4px   6px -4px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+}
+
+/* ── 5. Carousel ───────────────────────────────────────────── */
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 2.5rem 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-fade-edge {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  height: 100%;
+  width: 5%;
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+  pointer-events: none;
+}
+
+/* ── 6. Apple-style Speaker Cards ──────────────────────────── */
+.apple-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 1.5rem;
+  background-color: #f1f5f9;
+  overflow: hidden;
+  flex-shrink: 0;
+  height: 24rem;
+  width: 18rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .apple-card {
+    height: 35rem;
+    width: 24rem;
+  }
+}
+
+.apple-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.apple-card:hover {
+  transform: scale(0.98);
+}
+
+.apple-card-content {
+  position: relative;
+  z-index: 30;
+  padding: 2rem;
+  text-align: left;
+  width: 100%;
+}
+
+.apple-card-img {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+
+/* ── 7. Modal ──────────────────────────────────────────────── */
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 60;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  max-width: 64rem;
+  width: 90%;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ── 8. Timeline ───────────────────────────────────────────── */
+.timeline-line {
+  width: 2px;
+  background: #e2e8f0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 24px;
+    transform: none;
+  }
+}
+
+.timeline-dot-active {
+  background: var(--accent-blue);
+  box-shadow: 0 0 0 4px #dbeafe;
+}
+
+/* ── 9. Buttons ────────────────────────────────────────────── */
+.btn-primary {
+  background-color: var(--text-primary);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-primary);
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-secondary);
+  border-color: #cbd5e1;
+}
+
+/* ── 10. Sponsor Marquee Animation ─────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
