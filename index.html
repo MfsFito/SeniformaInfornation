@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infornation 2026 - Seminar Nasional HMIF</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffffff',
+                        secondary: '#f8fafc',
+                        card: '#ffffff',
+                        accent: {
+                            blue: '#1565C0',
+                            light: '#e0f2fe',
+                        },
+                        text: {
+                            primary: '#0f172a',
+                            muted: '#64748b',
+                        },
+                        border: '#e2e8f0',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-muted: #64748b;
+            --accent-blue: #1565C0;
+            --border-color: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        section {
+            scroll-margin-top: 100px;
+        }
+
+
+        .grid-wrapper {
+            position: relative;
+            background-color: #f8fafc;
+        }
+
+        .grid-background {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+            background-size: 20px 30px;
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+        }
+
+
+        .clean-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.025);
+            transition: all 0.2s ease;
+        }
+
+        .clean-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
+        }
+
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+
+            padding: 2.5rem 0;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+
+        }
+
+        .carousel-fade-edge {
+            position: absolute;
+            right: 0;
+            z-index: 10;
+            height: 100%;
+            width: 5%;
+            background: linear-gradient(to left, var(--bg-secondary), transparent);
+            pointer-events: none;
+        }
+
+        .apple-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-radius: 1.5rem;
+            background-color: #f1f5f9;
+            overflow: hidden;
+            flex-shrink: 0;
+            height: 24rem;
+            width: 18rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .apple-card {
+                height: 35rem;
+                width: 24rem;
+            }
+        }
+
+        .apple-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            top: 0;
+            z-index: 20;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .apple-card:hover {
+            transform: scale(0.98);
+        }
+
+        .apple-card-content {
+            position: relative;
+            z-index: 30;
+            padding: 2rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .apple-card-img {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            z-index: 60;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            max-width: 64rem;
+            width: 90%;
+            margin: 2.5rem auto;
+            padding: 2.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+                margin: 1.5rem auto;
+            }
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+        .timeline-line {
+            width: 2px;
+            background: #e2e8f0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 24px;
+                transform: none;
+            }
+        }
+
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: white;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #334155;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-primary);
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            border-color: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-accent-blue selection:text-white">
+    <div id="card-modal" class="modal-overlay">
+        <div class="modal-content" id="modal-inner">
+            <button id="close-modal"
+                class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                <i data-lucide="x" class="h-5 w-5 text-gray-700"></i>
+            </button>
+            <p id="modal-category" class="text-sm font-medium text-accent-blue tracking-wide"></p>
+            <h3 id="modal-title" class="mt-2 text-2xl md:text-5xl font-bold text-text-primary tracking-tight"></h3>
+            <div id="modal-body" class="py-8 prose max-w-none text-text-muted">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar"
+        class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 transition-all duration-500 bg-white py-3 rounded-2xl shadow-lg border border-border-color">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="LOGO_HMIF.png" alt="HMIF Logo" class="w-10 h-10 object-contain">
+                <div class="flex flex-col">
+                    <span
+                        class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Infornation</span>
+                    <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF 2026</span>
+                </div>
+            </a>
+
+
+            <div class="hidden md:flex items-center gap-8 font-inter text-sm font-semibold text-text-muted">
+                <a href="#hero" class="hover:text-accent-blue transition-all duration-300">Beranda</a>
+                <a href="#carousel-section" class="hover:text-accent-blue transition-all duration-300">Sorotan</a>
+                <a href="#venue" class="hover:text-accent-blue transition-all duration-300">Venue</a>
+                <a href="#topik" class="hover:text-accent-blue transition-all duration-300">Topik</a>
+                <a href="#timeline" class="hover:text-accent-blue transition-all duration-300">Timeline</a>
+                <a href="#harga" class="hover:text-accent-blue transition-all duration-300">Biaya</a>
+            </div>
+
+
+            <div class="hidden lg:flex items-center gap-6">
+
+                <div class="flex items-center gap-3 pr-2 border-r border-border-color/50">
+                    <div class="w-11 h-11 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
+
+                        <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[11px] text-text-muted font-medium leading-none mb-1">Contact Us</span>
+                        <span class="text-sm font-black text-accent-blue leading-none">085 738 979 920</span>
+                    </div>
+                </div>
+
+
+                <a href="#panduan"
+                    class="flex items-center gap-3 bg-[#42A5F5] hover:bg-blue-600 text-white px-7 py-3 rounded-full font-black shadow-lg transition-all transform hover:-translate-y-0.5 active:scale-95 group">
+                    <div class="bg-white/20 p-1.5 rounded-lg group-hover:bg-white/30 transition-colors">
+                        <i data-lucide="ticket" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <span class="text-base tracking-tight">Submit!</span>
+                </a>
+            </div>
+
+
+            <button class="md:hidden text-text-primary p-2 focus:outline-none" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+
+        <div id="mobile-menu"
+            class="fixed inset-x-0 top-20 mx-auto w-[90%] bg-white/90 backdrop-blur-2xl z-40 hidden flex-col items-center p-8 gap-6 rounded-3xl border border-white/20 shadow-2xl opacity-0 transition-all duration-300">
+            <a href="#hero" class="mobile-link text-lg font-bold text-text-primary">Beranda</a>
+            <a href="#carousel-section" class="mobile-link text-lg font-bold text-text-primary">Sorotan</a>
+            <a href="#venue" class="mobile-link text-lg font-bold text-text-primary">Venue</a>
+            <a href="#topik" class="mobile-link text-lg font-bold text-text-primary">Topik</a>
+            <a href="#timeline" class="mobile-link text-lg font-bold text-text-primary">Timeline</a>
+            <a href="#harga" class="mobile-link text-lg font-bold text-text-primary">Biaya</a>
+            <a href="#panduan"
+                class="mobile-link btn-primary w-full text-center py-4 mt-2 bg-accent-blue text-white flex items-center justify-center gap-2">
+                <i data-lucide="ticket" class="w-5 h-5"></i>
+                Submit!
+            </a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Hero -->
+    <section id="hero"
+        class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-text-primary">
+
+        <div class="absolute inset-0 z-0">
+            <img src="https://suarantb.com/wp-content/uploads/2024/10/Kampus-Unram-foto-utama.jpeg"
+                alt="Seminar Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-10 py-20 text-center">
+            <div class="flex flex-col items-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold mb-8"
+                    data-aos="fade-down">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-blue"></i>
+                    Official Website Seminar Nasional Infornation 2026
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6"
+                    data-aos="fade-up" data-aos-delay="100">
+                    Transformasi <span class="text-accent-blue">Digital</span> <br class="hidden md:block" />
+                    untuk Masa Depan.
+                </h1>
+
+                <p class="text-base md:text-lg text-white/80 mb-10 max-w-2xl font-normal leading-relaxed mx-auto px-4"
+                    data-aos="fade-up" data-aos-delay="200">
+                    Eksplorasi sinergi Sistem Cerdas dan Produktivitas Berkelanjutan dalam menghadapi tantangan era
+                    industri 5.0.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <a href="#panduan"
+                        class="btn-primary bg-accent-blue hover:bg-blue-600 border-none text-white px-10 py-4 w-full sm:w-auto text-center text-base shadow-xl shadow-blue-900/20">
+                        Cara Submit Paper
+                    </a>
+                    <a href="#harga"
+                        class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-4 w-full sm:w-auto rounded-full font-medium transition-all text-center flex justify-center items-center gap-2">
+                        Daftar Sekarang
+                    </a>
+                </div>
+
+
+                <p class="mt-8 text-white/70 text-sm font-medium tracking-wide flex items-center justify-center gap-2"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <span class="w-1.5 h-1.5 bg-accent-blue rounded-full"></span>
+                    Hubungi Admin: <span class="text-white font-bold ml-1">085738979920</span>
+                </p>
+
+                <div class="mt-16 flex flex-wrap justify-center items-center gap-8 md:gap-16" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div class="flex flex-col items-center md:items-start">
+                        <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Waktu
+                            Pelaksanaan</span>
+                        <div class="flex items-center gap-2 text-white font-bold">
+                            <i data-lucide="calendar" class="w-4 h-4 text-accent-blue"></i>
+                            <span class="text-base md:text-lg">24 Juni 2026</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-px h-10 bg-white/20"></div>
+                    <div class="flex flex-col items-center md:items-start">
+                        <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Lokasi Virtual
+                            & Offline</span>
+                        <div class="flex flex-col items-center md:items-start gap-1 text-white">
+                            <div class="flex items-center gap-2 font-bold">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-accent-blue"></i>
+                                <span class="text-base md:text-lg">Gedung Prof Morisco</span>
+                            </div>
+                            <span class="text-[10px] text-white/60 font-medium">Jl. Gatot Subroto No.136, Sukaraja, Kec.
+                                Bumi Waras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-bounce">
+            <span class="text-[10px] uppercase tracking-widest font-bold">Scroll</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Tentang Seminar (Restored & Enriched) -->
+    <section id="tentang" class="py-32 bg-secondary grid-wrapper relative">
+        <div class="grid-background opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center font-inter">
+                <div data-aos="fade-right">
+                    <span
+                        class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block underline decoration-accent-blue/30 underline-offset-8">Conference
+                        Overview</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">Visi Seminar
+                        Nasional Infornation</h2>
+                    <div class="space-y-6 text-base md:text-lg text-text-muted leading-relaxed">
+                        <p>
+                            Seminar Nasional Infornation 2026 merupakan manifestasi nyata dari <span
+                                class="text-text-primary font-semibold">Himpunan Mahasiswa Informatika (HMIF)</span>
+                            dalam mendorong percepatan literasi digital dan inovasi teknologi di Indonesia. Bersama
+                            mitra teknologi global, kami menyelenggarakan event ini di <span
+                                class="text-text-primary font-semibold underline decoration-accent-blue/30">Novotel
+                                Bandar Lampung</span> sebagai pusat kolaborasi riset tahun ini.
+                        </p>
+                        <p>
+                            Kami percaya bahwa kolaborasi lintas disiplin antara peneliti, akademisi, dan pelaku
+                            industri adalah kunci untuk menciptakan solusi teknologi yang tidak hanya canggih secara
+                            teknis, namun juga memiliki nilai keberlanjutan dan etika yang kuat. Melalui forum ini,
+                            ide-ide transformatif akan disaring dan didiskusikan demi kemajuan bangsa.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 grid grid-cols-2 gap-8">
+                        <div
+                            class="p-8 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500">
+                            </div>
+                            <h4 class="text-3xl font-bold text-text-primary mb-2">500+</h4>
+                            <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Delegasi Aktif
+                            </p>
+                        </div>
+                        <div
+                            class="p-8 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500">
+                            </div>
+                            <h4 class="text-3xl font-bold text-text-primary mb-2">20+</h4>
+                            <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Publikasi Mitra
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8 relative" data-aos="fade-left">
+
+                    <div
+                        class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100/50 blur-[100px] rounded-full">
+                    </div>
+
+                    <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
+                            <i data-lucide="book-open" class="w-7 h-7 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Publikasi Terindeks</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Seluruh naskah yang dinyatakan lolos
+                                seleksi akan diterbitkan dalam prosiding ber-ISBN nasional dan beberapa naskah terpilih
+                                akan direkomendasikan masuk ke <span class="text-accent-blue font-medium">Jurnal
+                                    Nasional SINTA</span>.</p>
+                        </div>
+                    </div>
+                    <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
+                            <i data-lucide="users" class="w-7 h-7 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Networking Strategis</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Forum ini memfasilitasi sesi khusus untuk
+                                diskusi panel dan networking bersama para ahli IT, pakar data science, serta pemimpin
+                                eksekutif dari perusahaan teknologi mitra kami.</p>
+                        </div>
+                    </div>
+                    <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
+                            <i data-lucide="award" class="w-7 h-7 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Penghargaan Riset</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Kami memberikan apresiasi khusus bagi
+                                <span class="font-semibold text-text-primary italic">Best Paper Award</span> dan <span
+                                    class="font-semibold text-text-primary italic">Best Presenter</span> sebagai bentuk
+                                motivasi bagi keunggulan riset.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 3: Keynote Highlight (Opening) -->
+        <section id="keynote" class="py-24 bg-white border-b border-border-color">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
+                    <div class="w-full lg:w-1/2" data-aos="fade-right">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="https://if.unram.ac.id/wp-content/uploads/2022/11/4-1.png" alt="Heri Wijayanto"
+                                class="w-full aspect-[4/3] object-cover transition-all duration-700">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                <p class="text-white font-bold text-lg">Heri Wijayanto S.T., M.T., Ph.D</p>
+                                <p class="text-white/70 text-sm">Opening Keynote Speaker</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/2" data-aos="fade-left">
+                        <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block">Keynote
+                            Session</span>
+                        <h3
+                            class="text-3xl md:text-5xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">
+                            Evolusi Sistem Cerdas <br class="hidden md:block" />
+                            di Era Masa Depan.
+                        </h3>
+                        <p class="text-lg text-text-muted mb-10 leading-relaxed font-light">
+                            Masa depan produktivitas tidak lagi bergantung pada seberapa keras kita bekerja secara
+                            fisik,
+                            melainkan seberapa harmonis kita berkolaborasi dengan asisten digital yang mampu belajar dan
+                            beradaptasi.
+                        </p>
+                        <div class="flex flex-wrap gap-8 items-center border-t border-border-color pt-8">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-text-primary">Top 1% AI Expert</span>
+                                <span class="text-xs text-text-muted">Global Researcher</span>
+                            </div>
+                            <div class="w-px h-8 bg-border-color hidden sm:block"></div>
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-text-primary">National Lead</span>
+                                <span class="text-xs text-text-muted">Technology Research</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Our Speakers (Carousel) -->
+        <section id="carousel-section" class="py-24 bg-primary border-t border-border-color">
+            <div class="max-w-7xl mx-auto px-6 mb-10 text-center md:text-left">
+                <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Speaker
+                    Highlights</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight max-w-2xl">
+                    Our Speakers & Keynotes.
+                </h2>
+            </div>
+
+
+            <div class="carousel-container relative w-full">
+                <div class="carousel-fade-edge hidden md:block"></div>
+
+                <div class="carousel-track pl-6 md:pl-0 mx-auto max-w-7xl gap-4 md:gap-6" id="apple-carousel">
+
+                    <div class="apple-card" data-index="0">
+                        <div class="apple-card-content">
+                            <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
+                            <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Nadiyasari Agitha
+                                S.Kom., M.M.T. <br />Sistem Informasi.</p>
+                        </div>
+                        <img src="https://if.unram.ac.id/wp-content/uploads/2022/11/13-1.png" alt="Speaker"
+                            class="apple-card-img">
+                    </div>
+
+                    <div class="apple-card" data-index="1">
+                        <div class="apple-card-content">
+                            <p class="text-sm font-medium text-white/90">Invited Speaker</p>
+                            <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Royana Afwani,
+                                S.T., M.T.
+                                <br />Sistem Informasi.
+                            </p>
+                        </div>
+                        <img src="https://if.unram.ac.id/wp-content/uploads/2022/11/14-1.png" alt="Speaker"
+                            class="apple-card-img">
+                    </div>
+
+                    <div class="apple-card" data-index="2">
+                        <div class="apple-card-content">
+                            <p class="text-sm font-medium text-white/90">Industry Expert</p>
+                            <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Andy Hidayat
+                                Jatmika
+                                <br />S.T., M.Kom..
+                            </p>
+                        </div>
+                        <img src="https://if.unram.ac.id/wp-content/uploads/2022/11/11-1.png" alt="Speaker"
+                            class="apple-card-img">
+                    </div>
+
+                    <div class="apple-card" data-index="2">
+                        <div class="apple-card-content">
+                            <p class="text-sm font-medium text-white/90">Industry Expert</p>
+                            <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Andy Hidayat
+                                Jatmika
+                                <br />S.T., M.Kom..
+                            </p>
+                        </div>
+                        <img src="https://if.unram.ac.id/wp-content/uploads/2022/11/11-1.png" alt="Speaker"
+                            class="apple-card-img">
+                    </div>
+
+
+                    <div class="w-4 md:w-[33%] flex-shrink-0"></div>
+                </div>
+
+
+                <div class="max-w-7xl mx-auto px-6 mt-6 flex justify-end gap-2">
+                    <button id="btn-prev"
+                        class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
+                        <i data-lucide="arrow-left" class="h-5 w-5 text-gray-600"></i>
+                    </button>
+                    <button id="btn-next"
+                        class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
+                        <i data-lucide="arrow-right" class="h-5 w-5 text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 5: Scope & Submission -->
+        <section id="topik" class="py-24 bg-secondary grid-wrapper relative">
+            <div class="grid-background opacity-40"></div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Research
+                        Tracks</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight">Lingkup Topik Paper</h2>
+                    <p class="text-text-muted mt-5 max-w-2xl mx-auto leading-relaxed">
+                        Kami mengundang para peneliti, akademisi, dan praktisi untuk mempresentasikan karya ilmiah
+                        terbaik
+                        mereka yang berfokus pada inovasi teknologi berikut:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700">
+                        </div>
+                        <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i
+                                data-lucide="brain" class="w-6 h-6"></i></div>
+                        <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">AI & Machine Learning</h4>
+                        <p class="text-sm text-text-muted leading-relaxed relative z-10">Implementasi algoritma cerdas,
+                            Deep
+                            Learning, dan pemrosesan bahasa alami.</p>
+                    </div>
+                    <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative"
+                        data-aos="fade-up" data-aos-delay="50">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700">
+                        </div>
+                        <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i
+                                data-lucide="shield-check" class="w-6 h-6"></i></div>
+                        <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Cyber Security</h4>
+                        <p class="text-sm text-text-muted leading-relaxed relative z-10">Sistem keamanan jaringan,
+                            kriptografi modern, dan perlindungan privasi data.</p>
+                    </div>
+                    <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700">
+                        </div>
+                        <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i
+                                data-lucide="cpu" class="w-6 h-6"></i></div>
+                        <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Internet of Things</h4>
+                        <p class="text-sm text-text-muted leading-relaxed relative z-10">Integrasi perangkat keras,
+                            sensor
+                            cerdas, dan komunikasi M2M yang efisien.</p>
+                    </div>
+                    <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative"
+                        data-aos="fade-up" data-aos-delay="150">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700">
+                        </div>
+                        <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i
+                                data-lucide="code" class="w-6 h-6"></i></div>
+                        <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Software Engineering</h4>
+                        <p class="text-sm text-text-muted leading-relaxed relative z-10">Metodologi pengembangan
+                            perangkat
+                            lunak, DevOps, dan arsitektur microservices.</p>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="mt-20 border-t border-border-color">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up">
+                        <a href="#"
+                            class="group p-10 bg-text-primary rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
+                            <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="send" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white text-2xl font-bold mb-2">Submit Paper</h3>
+                                <p class="text-white/60 text-sm">Unggah naskah Anda melalui portal OCS Unram.</p>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
+                            <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="file-box" class="w-6 h-6 text-accent-blue"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-text-primary text-2xl font-bold mb-2">Template</h3>
+                                <p class="text-text-muted text-sm">Gunakan format naskah resmi (.docx/PDF).</p>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
+                            <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="download-cloud" class="w-6 h-6 text-accent-blue"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-text-primary text-2xl font-bold mb-2">Download Template</h3>
+                                <p class="text-text-muted text-sm">Unduh paket template lengkap (v2026).</p>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="group p-10 bg-accent-blue rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white text-2xl font-bold mb-2">Lihat Panduan</h3>
+                                <p class="text-white/80 text-sm">Baca aturan penulisan & etika publikasi.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Timeline Minimalis -->
+        <section id="timeline" class="py-24 bg-primary relative">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-text-primary tracking-tight text-center mb-16" data-aos="fade-up">
+                    Timeline Event</h2>
+
+                <div class="relative">
+                    <div class="timeline-line"></div>
+
+                    <div class="space-y-12">
+
+                        <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
+                                <h4 class="font-semibold text-text-primary text-lg mb-1">Pendaftaran Batch 1</h4>
+                                <p class="text-text-muted text-sm">Early bird abstrak dan peserta awal.</p>
+                            </div>
+                            <div
+                                class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10">
+                            </div>
+                            <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
+                                <span
+                                    class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">1
+                                    - 15 Agustus 2026</span>
+                            </div>
+                        </div>
+
+
+                        <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0"
+                                data-aos="fade-left">
+                                <h4 class="font-semibold text-accent-blue text-lg mb-1">Pendaftaran Batch 2</h4>
+                                <p class="text-text-muted text-sm">Reguler dan batas akhir full paper.</p>
+                            </div>
+                            <div
+                                class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent-blue border-2 border-white z-10 ring-4 ring-blue-50">
+                            </div>
+                            <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1"
+                                data-aos="fade-right">
+                                <span
+                                    class="inline-block px-3 py-1 bg-blue-50 text-accent-blue text-xs font-semibold rounded-md">18
+                                    - 30 Agustus 2026</span>
+                            </div>
+                        </div>
+
+
+                        <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
+                                <h4 class="font-semibold text-text-primary text-lg mb-1">Pengumuman LoA</h4>
+                                <p class="text-text-muted text-sm">Letter of Acceptance bagi paper terpilih.</p>
+                            </div>
+                            <div
+                                class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10">
+                            </div>
+                            <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
+                                <span
+                                    class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">15
+                                    September 2026</span>
+                            </div>
+                        </div>
+
+
+                        <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0"
+                                data-aos="fade-left">
+                                <h4 class="font-semibold text-text-primary text-lg mb-1">Pelaksanaan Seminar</h4>
+                                <p class="text-text-muted text-sm">Konferensi, presentasi, dan eksibisi.</p>
+                            </div>
+                            <div
+                                class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10">
+                            </div>
+                            <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1"
+                                data-aos="fade-right">
+                                <span
+                                    class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">24
+                                    - 25 Oktober 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Biaya Registrasi -->
+        <section id="harga" class="py-24 bg-accent-blue text-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-white tracking-tight mb-4">Investasi Keikutsertaan</h2>
+                    <p class="text-white/80 max-w-xl mx-auto">Pilih paket yang sesuai dengan profil peserta. Dapatkan
+                        harga khusus pada fase pendaftaran early bird.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+
+                    <div class="clean-card bg-white/10 backdrop-blur-md border-white/20 p-8 flex flex-col h-full relative"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <h3 class="font-semibold text-lg text-white mb-1">Peserta Mahasiswa</h3>
+                        <p class="text-sm text-white/60 mb-6">Wajib melampirkan KTM aktif.</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-white">Rp 75k</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> Akses semua sesi
+                                utama
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> E-Sertifikat Nasional
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="btn-outline border-white/30 bg-white/10 text-white hover:bg-white hover:text-accent-blue w-full py-3 text-center block mt-auto text-sm">Pilih
+                            Paket</a>
+                    </div>
+
+
+                    <div class="clean-card bg-white p-8 flex flex-col h-full relative border-white shadow-2xl -translate-y-2"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="absolute top-0 right-8 -translate-y-1/2 bg-yellow-400 text-accent-blue text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full">
+                            Populer
+                        </div>
+                        <h3 class="font-semibold text-lg text-accent-blue mb-1">Pemakalah</h3>
+                        <p class="text-sm text-text-muted mb-6">Untuk peneliti / Submit Paper.</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-accent-blue">Rp 250k</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3 text-sm text-text-primary font-medium">
+                                <i data-lucide="check" class="w-5 h-5 text-accent-blue shrink-0"></i> Presentasi Paper
+                                Paralel
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-text-primary font-medium">
+                                <i data-lucide="check" class="w-5 h-5 text-accent-blue shrink-0"></i> Publikasi
+                                Prosiding
+                                ISBN
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-text-muted">
+                                <i data-lucide="check" class="w-5 h-5 text-accent-blue shrink-0"></i> Sertifikat
+                                Pemakalah
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="btn-primary w-full py-3 text-center block mt-auto text-sm bg-accent-blue hover:bg-blue-800 text-white border-0">Daftar
+                            Pemakalah</a>
+                    </div>
+
+
+                    <div class="clean-card bg-white/10 backdrop-blur-md border-white/20 p-8 flex flex-col h-full relative"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="font-semibold text-lg text-white mb-1">Peserta Umum</h3>
+                        <p class="text-sm text-white/60 mb-6">Akademisi umum / industri.</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-white">Rp 150k</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> Akses semua sesi
+                                utama
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> Seminar Kit Digital
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="btn-outline border-white/30 bg-white/10 text-white hover:bg-white hover:text-accent-blue w-full py-3 text-center block mt-auto text-sm">Pilih
+                            Paket</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="w-full h-12 bg-accent-blue shadow-lg relative z-20"></div>
+
+        <!-- SECTION 6: guidline nya-->
+        <section id="panduan" class="py-32 bg-primary border-t border-border-color relative overflow-hidden">
+
+            <div
+                class="absolute -top-24 -left-24 w-96 h-96 bg-blue-50/50 blur-[120px] rounded-full pointer-events-none">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
+                    <div data-aos="fade-right">
+                        <span
+                            class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-5 block underline decoration-accent-blue/30 underline-offset-8">Information
+                            for Authors</span>
+                        <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">Pedoman
+                            Penulisan
+                            Ilmiah</h2>
+                        <div class="space-y-6 text-text-muted leading-relaxed mb-10 text-lg">
+                            <p>
+                                Naskah yang diajukan harus orisinal, belum pernah dipublikasikan sebelumnya, dan tidak
+                                sedang dalam proses review di konferensi atau jurnal lain. Kami menekankan pada kualitas
+                                teknis dan kebaruan inovasi yang ditawarkan.
+                            </p>
+                            <p>
+                                Gunakan portal <span class="font-bold text-text-primary">Open Conference System
+                                    (OCS)</span>
+                                Universitas Mataram untuk seluruh proses pengiriman dan revisi naskah secara transparan.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-5">
+                            <a href="#"
+                                class="btn-primary px-10 py-4 flex items-center gap-3 bg-accent-blue hover:bg-blue-600 border-none shadow-lg">
+                                <i data-lucide="file-text" class="w-5 h-5 text-white"></i> Panduan Penulisan
+                            </a>
+                            <a href="#"
+                                class="btn-outline px-10 py-4 flex items-center gap-2 group hover:border-accent-blue hover:text-accent-blue">
+                                Lihat Full Guidelines <i data-lucide="chevron-right"
+                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
+                        <div
+                            class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div
+                                class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="layout" class="w-7 h-7 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Format 1 Kolom</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Naskah harus disusun dalam format
+                                Single-Column menggunakan template .docx yang disediakan.</p>
+                        </div>
+                        <div
+                            class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div
+                                class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="search" class="w-7 h-7 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Internal Review</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Setiap naskah akan melalui proses <span
+                                    class="italic">double-blind review</span> yang ketat oleh pakar di bidangnya.</p>
+                        </div>
+                        <div
+                            class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div
+                                class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="check-check" class="w-7 h-7 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Plagiarism Policy</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Persentase plagiarisme maksimum adalah
+                                20%
+                                (dicek menggunakan Turnitin).</p>
+                        </div>
+                        <div
+                            class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div
+                                class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="calendar-check" class="w-7 h-7 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Batas Akhir</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Pastikan submit sebelum tenggat waktu
+                                batch
+                                pendaftaran yang sedang aktif.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="w-full bg-accent-blue py-10 my-16 shadow-inner relative overflow-hidden group">
+                <div class="absolute inset-y-0 left-0 w-2 bg-yellow-400"></div>
+                <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10">
+                    <div
+                        class="bg-white p-4 rounded-2xl shadow-xl transition-transform group-hover:scale-105 duration-500">
+                        <img src="https://1.bp.blogspot.com/-J44taKYsS0U/X96-7AdaY2I/AAAAAAAAAuY/XdaY2i7_KVQz3pCyQnYnq6D_wse-iQ7rgCLcBGAsYHQ/w1600/Logo%2BUNRAM.pngh"
+                            alt="UAP Logo" class="h-24 w-24 object-contain">
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-2">Hosted
+                            by Universitas Mataram</h3>
+                        <p class="text-white/70 font-semibold tracking-widest uppercase text-xs">Collaboration for
+                            Excellence in Digital Transformation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+                <!-- Section: Organizer & Co-Host -->
+                <div class="border-t border-border-color pt-24 mb-20">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Organizer
+                            &
+                            Regional Partners</span>
+                        <h2 class="text-2xl md:text-4xl font-bold text-text-primary tracking-tight">Our Organization
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-5xl mx-auto">
+                        <div data-aos="fade-up" data-aos-delay="0">
+                            <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Official
+                                Organizer</h4>
+                            <div
+                                class="flex justify-center gap-10 items-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all">
+                                <img src="LOGO_HMIF.png" alt="HMIF" class="h-14 object-contain">
+                                <img src="https://1.bp.blogspot.com/-J44taKYsS0U/X96-7AdaY2I/AAAAAAAAAuY/XdaY2i7_KVQz3pCyQnYnq6D_wse-iQ7rgCLcBGAsYHQ/w1600/Logo%2BUNRAM.png"
+                                    alt="UNRAM" class="h-10 object-contain">
+                            </div>
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="100">
+                            <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Co-Host
+                                Partners</h4>
+                            <div
+                                class="flex flex-wrap justify-center gap-4 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all">
+                                <div
+                                    class="px-6 py-2.5 bg-secondary rounded-2xl text-[11px] font-black tracking-tighter border border-border-color">
+                                    UNILA</div>
+                                <div
+                                    class="px-6 py-2.5 bg-secondary rounded-2xl text-[11px] font-black tracking-tighter border border-border-color">
+                                    ITERA</div>
+                                <div
+                                    class="px-6 py-2.5 bg-secondary rounded-2xl text-[11px] font-black tracking-tighter border border-border-color">
+                                    UBL</div>
+                                <div
+                                    class="px-6 py-2.5 bg-secondary rounded-2xl text-[11px] font-black tracking-tighter border border-border-color">
+                                    UMETRO</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+
+
+        <!-- SECTION: Publication Partners (Blue Background) -->
+        <section class="py-24 bg-accent-blue text-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-xs font-bold uppercase tracking-widest text-white/60 mb-3 block">Indexing &
+                        Publication</span>
+                    <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">Publication Partners</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-4xl mx-auto">
+                    <div data-aos="fade-up" data-aos-delay="0">
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-8">Main Publisher
+                        </h4>
+                        <div
+                            class="flex justify-center gap-8 items-center bg-white/10 p-6 rounded-3xl backdrop-blur-md border border-white/10">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/IEEE_logo.svg/3840px-IEEE_logo.svg.png"
+                                alt="IEEE" class="h-10 object-contain brightness-0 invert">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Scopus_logo.svg/500px-Scopus_logo.svg.png?_=20180626134022"
+                                alt="SCOPUS" class="h-10 object-contain brightness-0 invert">
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-8">Official
+                            Partners</h4>
+                        <div
+                            class="flex justify-center gap-10 items-center bg-white/10 p-6 rounded-3xl backdrop-blur-md border border-white/10">
+                            <span class="text-lg font-black tracking-tighter text-white">Indosat</span>
+                            <span class="text-lg font-black tracking-tighter text-white">Telkomsel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Our Sponsors  -->
+        <section class="py-24 bg-secondary overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 text-center mb-12" data-aos="fade-up">
+                <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Support
+                    System</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">Our Sponsors & Partners</h2>
+            </div>
+
+            <div
+                class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+                <div class="flex items-center justify-start animate-marquee whitespace-nowrap py-10">
+                    <ul
+                        class="flex items-center justify-start [&_li]:mx-12 [&_img]:max-w-none opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png"
+                                alt="Google" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png"
+                                alt="Amazon" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png"
+                                alt="Microsoft" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png"
+                                alt="IBM" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.png"
+                                alt="Cisco" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png"
+                                alt="Google" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png"
+                                alt="Amazon" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png"
+                                alt="Microsoft" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png"
+                                alt="IBM" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.png"
+                                alt="Cisco" class="h-10 object-contain"></li>
+                    </ul>
+                    <ul class="flex items-center justify-start [&_li]:mx-12 [&_img]:max-w-none opacity-40 grayscale hover:grayscale-0 transition-all duration-500"
+                        aria-hidden="true">
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png"
+                                alt="Google" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png"
+                                alt="Amazon" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png"
+                                alt="Microsoft" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png"
+                                alt="IBM" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.png"
+                                alt="Cisco" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png"
+                                alt="Google" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png"
+                                alt="Amazon" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png"
+                                alt="Microsoft" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png"
+                                alt="IBM" class="h-10 object-contain"></li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.png"
+                                alt="Cisco" class="h-10 object-contain"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION: Venue -->
+        <section id="venue" class="py-24 bg-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                <span
+                    class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block underline decoration-accent-blue/20 underline-offset-8">VENUE</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-4">Ruang Prof. Morisco
+                </h2>
+                <p class="text-text-muted text-sm md:text-base max-w-3xl mx-auto mb-16 leading-relaxed">
+                    Jl. Majapahit No.62, Gomong, Kec. Selaparang Mataram, West Nusa Tenggara. 83115
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Venue  1 -->
+                    <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-_4hxYspfL0Oa2byI8UhW9C-VLJ1U3M8lhQ&s"
+                            alt="Novotel Room" class="w-full h-full object-cover  transition-all duration-700">
+                    </div>
+                    <!-- Venue  2 -->
+                    <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://unram.ac.id/wp-content/uploads/2025/01/PERESMIAN-DAN-KUNJUNGAN.jpg"
+                            alt="Novotel Ballroom" class="w-full h-full object-cover  transition-all duration-700">
+                    </div>
+                    <!-- Venue  3 -->
+                    <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <img src="image.png" alt="Novotel Pool"
+                            class="w-full h-full object-cover transition-all duration-700">
+                    </div>
+                    <!-- Venue  4 -->
+                    <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://unram.ac.id/wp-content/uploads/2025/01/PERESMIAN-DAN-KUNJUNGAN.jpg"
+                            alt="Novotel Exterior" class="w-full h-full object-cover  transition-all duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="bg-secondary border-t border-border-color py-12">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2 space-y-4">
+                    <a href="#" class="flex items-center gap-3 group">
+                        <img src="LOGO_HMIF.png" alt="HMIF Logo" class="w-10 h-10 object-contain">
+                        <div class="flex flex-col">
+                            <span
+                                class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Infornation</span>
+                            <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF
+                                2026</span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-text-muted max-w-sm leading-relaxed">
+                        Himpunan Mahasiswa Informatika menghadirkan platform edukasi dan inovasi digital untuk kemajuan
+                        teknologi bangsa.
+                    </p>
+                    <div class="flex gap-4 pt-2">
+                        <a href="#" class="text-gray-400 hover:text-text-primary transition-colors"><i
+                                data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-text-primary transition-colors"><i
+                                data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-text-primary transition-colors"><i
+                                data-lucide="mail" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4 text-sm">Informasi</h4>
+                    <ul class="space-y-3 text-sm text-text-muted">
+                        <li><a href="#topik" class="hover:text-accent-blue transition-colors">Topik Paper</a></li>
+                        <li><a href="#timeline" class="hover:text-accent-blue transition-colors">Jadwal Acara</a></li>
+                        <li><a href="#harga" class="hover:text-accent-blue transition-colors">Registrasi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4 text-sm">Kontak</h4>
+                    <ul class="space-y-3 text-sm text-text-muted">
+                        <li>Gedung HMIF Lt. 2</li>
+                        <li>+62 812 3456 7890</li>
+                        <li>hello@infornation.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-border-color flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                <p>&copy; 2026 Infornation HMIF. All rights reserved.</p>
+            </div>
+        </footer>
+
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+        <script>
+
+            lucide.createIcons();
+
+
+            AOS.init({
+                offset: 0,
+                duration: 700,
+                easing: 'ease-out-cubic',
+                once: true,
+            });
+
+
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            let menuOpen = false;
+            function toggleMenu() {
+                menuOpen = !menuOpen;
+                if (menuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                } else {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                }
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', () => { if (menuOpen) toggleMenu(); }));
+
+
+
+
+            const carouselData = [
+                {
+                    category: "Keynote Speaker",
+                    title: "Prof. Dr. Andi Budianto, Pakar AI.",
+                    src: "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1000&auto=format&fit=crop",
+                    content: `
+                    <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+                        <p class="text-base md:text-lg text-text-muted mb-6">
+                            <span class="font-bold text-text-primary">Membahas Masa Depan AI di Indonesia.</span><br/>
+                            Prof. Andi adalah kepala riset nasional dengan pengalaman lebih dari 20 tahun di bidang Artificial Intelligence. Beliau akan memaparkan bagaimana sistem cerdas dapat mengakselerasi produktivitas industri nasional.
+                        </p>
+                    </div>
+                `
+                },
+                {
+                    category: "Invited Speaker",
+                    title: "Siska Nurbaya, M.Kom, Pakar Siber.",
+                    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop",
+                    content: `
+                    <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+                        <p class="text-base md:text-lg text-text-muted mb-6">
+                            Menjaga kedaulatan digital melalui keamanan siber yang mumpuni. Ibu Siska akan membahas tantangan privasi data di era otomasi sistem cerdas.
+                        </p>
+                    </div>
+                `
+                },
+                {
+                    category: "Industry Expert",
+                    title: "Rizky Ramadhan, VP of Engineering.",
+                    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop",
+                    content: `
+                    <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+                        <p class="text-base md:text-lg text-text-muted mb-6">
+                            Implementasi sistem cerdas pada skala enterprise. Rizky akan berbagi best practices dalam membangun arsitektur IT yang tangguh dan skalabel untuk kebutuhan industri modern.
+                        </p>
+                    </div>
+                `
+                },
+                {
+                    category: "Academic Researcher",
+                    title: "Dr. Ahmad Fauzi, Peneliti Data.",
+                    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+                    content: `
+                    <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+                        <p class="text-base md:text-lg text-text-muted mb-6">
+                            Pemanfaatan Big Data untuk pengambilan keputusan berbasis data. Dr. Fauzi akan membedah metodologi riset terbaru dalam ekstraksi nilai dari dataset raksasa.
+                        </p>
+                    </div>
+                `
+                }
+            ];
+
+
+            const track = document.getElementById('apple-carousel');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+
+            function updateButtons() {
+                const maxScrollLeft = track.scrollWidth - track.clientWidth;
+                btnPrev.disabled = track.scrollLeft <= 5;
+                btnNext.disabled = track.scrollLeft >= maxScrollLeft - 5;
+            }
+
+            if (track && btnPrev && btnNext) {
+                track.addEventListener('scroll', updateButtons);
+
+                btnPrev.addEventListener('click', () => {
+                    track.scrollBy({ left: -320, behavior: 'smooth' });
+                });
+                btnNext.addEventListener('click', () => {
+                    track.scrollBy({ left: 320, behavior: 'smooth' });
+                });
+
+                // Initial check
+                setTimeout(updateButtons, 100);
+            }
+
+
+            const modalOverlay = document.getElementById('card-modal');
+            const btnCloseModal = document.getElementById('close-modal');
+            const categoryEl = document.getElementById('modal-category');
+            const titleEl = document.getElementById('modal-title');
+            const bodyEl = document.getElementById('modal-body');
+            const cards = document.querySelectorAll('.apple-card');
+
+            function openModal(index) {
+                const data = carouselData[index];
+                if (!data) return;
+
+                categoryEl.textContent = data.category;
+                titleEl.textContent = data.title;
+                bodyEl.innerHTML = data.content;
+
+                modalOverlay.classList.add('active');
+                document.body.classList.add('modal-open');
+            }
+
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+
+            cards.forEach(card => {
+                card.addEventListener('click', function () {
+                    const idx = parseInt(this.getAttribute('data-index'));
+                    openModal(idx);
+                });
+            });
+
+            btnCloseModal.addEventListener('click', closeModal);
+
+
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white/90', 'backdrop-blur-xl', 'border-white/20');
+                    navbar.classList.remove('bg-white', 'border-border-color');
+                } else {
+                    navbar.classList.add('bg-white', 'border-border-color');
+                    navbar.classList.remove('bg-white/90', 'backdrop-blur-xl', 'border-white/20');
+                }
+            });
+        </script>
+</body>
+
+</html>
