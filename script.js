@@ -1,8 +1,3 @@
-/* ============================================================
-   NIC 2026 — National Informatics Conference
-   External JavaScript | HMIF FT-UNRAM
-   ============================================================ */
-
 /* ── Speaker Modal Data ─────────────────────────────────────── */
 const SPEAKER_DATA = [
   {
