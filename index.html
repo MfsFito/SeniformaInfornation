@@ -129,7 +129,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: flex-end;
             align-items: flex-start;
             border-radius: 1.5rem;
             background-color: #f1f5f9;
@@ -162,6 +162,12 @@
             padding: 2rem;
             text-align: left;
             width: 100%;
+            margin-top: auto;
+        }
+
+        .apple-card-content p {
+            color: white;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
         }
 
         .apple-card-img {
@@ -290,7 +296,7 @@
     <nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 transition-all duration-500 bg-white py-3 rounded-2xl shadow-lg border border-border-color">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3 group">
-                <img src="img/LOGO_HMIF.webp" alt="HMIF Logo" class="w-10 h-10 object-contain">
+                <img src="img/LOGO_UNRAM.webp" alt="HMIF Logo" class="w-10 h-10 object-contain">
                 <div class="flex flex-col">
                     <span class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Seniforma</span>
                     <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF 2026</span>
@@ -312,8 +318,13 @@
                         <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-[11px] text-text-muted font-medium leading-none mb-1">Contact Us</span>
-                        <span class="text-sm font-black text-accent-blue leading-none">085 955 349 622 | 085 239 339 608</span>
+                        <span class="text-[11px] text-text-muted font-medium leading-none mb-1">
+                            Contact Us
+                        </span>
+                        <span class="text-sm font-black text-accent-blue leading-tight">
+                            085 955 349 622<br>
+                            085 239 339 608
+                        </span>
                     </div>
                 </div>
                 <a href="#panduan" class="flex items-center gap-3 bg-[#42A5F5] hover:bg-blue-600 text-white px-7 py-3 rounded-full font-black shadow-lg transition-all transform hover:-translate-y-0.5 active:scale-95 group">
@@ -336,7 +347,7 @@
             <a href="#topik" class="mobile-link text-lg font-bold text-text-primary">Topik</a>
             <a href="#timeline" class="mobile-link text-lg font-bold text-text-primary">Timeline</a>
             <a href="#harga" class="mobile-link text-lg font-bold text-text-primary">Biaya</a>
-            <a href="#panduan" class="mobile-link btn-primary w-full text-center py-4 mt-2 bg-accent-blue text-white flex items-center justify-center gap-2">
+            <a href="#acknowledgment" class="mobile-link btn-primary w-full text-center py-4 mt-2 bg-accent-blue text-white flex items-center justify-center gap-2">
                 <i data-lucide="ticket" class="w-5 h-5"></i> Submit!
             </a>
         </div>
@@ -545,8 +556,7 @@
                         </div>
                         <div class="w-px h-8 bg-border-color hidden sm:block"></div>
                         <div class="flex flex-col">
-                            <span class="text-sm font-bold text-text-primary">5 Keynote · 3 Moderator</span>
-                            <span class="text-xs text-text-muted">Nama akan diumumkan segera</span>
+                            <span class="text-sm font-bold text-text-primary">5 Keynote Speaker</span>
                         </div>
                     </div>
                 </div>
@@ -573,9 +583,7 @@
                         <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
                         <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Cahya Damarjati, S.T., M.Eng., Ph.D.</p>
                     </div>
-                    <div class="apple-card-img bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center" style="position:absolute;inset:0;z-index:10;">
-                        <i data-lucide="user" class="w-24 h-24 text-white/20"></i>
-                    </div>
+                    <img src="KeynoteSpeaker/Cahya Damarjati.jpeg" alt="Cahya Damarjati" class="apple-card-img">
                 </div>
 
                 <!-- Speaker 2: David Agustriawan -->
@@ -584,9 +592,7 @@
                         <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
                         <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.</p>
                     </div>
-                    <div class="apple-card-img bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center" style="position:absolute;inset:0;z-index:10;">
-                        <i data-lucide="user" class="w-24 h-24 text-white/20"></i>
-                    </div>
+                    <img src="KeynoteSpeaker/David Agustriawan.jpeg" alt="David Agustriawan" class="apple-card-img">
                 </div>
 
                 <!-- Speaker 3: Eko Fajar Cahyadi (ada foto) -->
@@ -626,44 +632,6 @@
                 <button id="btn-next" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
                     <i data-lucide="arrow-right" class="h-5 w-5 text-gray-600"></i>
                 </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: Moderators -->
-    <section id="moderators" class="py-20 bg-secondary border-t border-border-color">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Moderators</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-text-primary tracking-tight">Our Moderators.</h2>
-                <p class="text-text-muted mt-3 text-sm max-w-xl mx-auto">Berikut adalah moderator yang akan memandu diskusi dan jalannya acara.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="clean-card p-6 text-center" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="user" class="w-8 h-8 text-accent-blue"></i>
-                    </div>
-                    <p class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-1">Moderator #1</p>
-                    <h4 class="font-semibold text-text-primary text-sm mb-1">Segera Diumumkan</h4>
-                    <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
-                </div>
-                <div class="clean-card p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="user" class="w-8 h-8 text-accent-blue"></i>
-                    </div>
-                    <p class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-1">Moderator #2</p>
-                    <h4 class="font-semibold text-text-primary text-sm mb-1">Segera Diumumkan</h4>
-                    <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
-                </div>
-                <div class="clean-card p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="user" class="w-8 h-8 text-accent-blue"></i>
-                    </div>
-                    <p class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-1">Moderator #3</p>
-                    <h4 class="font-semibold text-text-primary text-sm mb-1">Segera Diumumkan</h4>
-                    <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
-                </div>
             </div>
         </div>
     </section>
@@ -725,7 +693,7 @@
             </div>
 
             <!-- Submit/Template/Panduan Cards -->
-            <div class="mt-20 border-t border-border-color pt-16">
+            <div class="mt-20 border-t border-border-color pt-16" id="acknowledgment">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up">
                     <a href="#" class="group p-10 bg-text-primary rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
                         <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
@@ -1294,14 +1262,40 @@
             </div>
 
             <div>
-                <h4 class="font-semibold text-white mb-5 text-sm">Kontak</h4>
-                <ul class="space-y-3 text-sm text-white/60">
-                    <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 shrink-0 mt-0.5 text-blue-400"></i>Ruang Prof. Morisco, FT-UNRAM</li>
-                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0 text-blue-400"></i>085 955 349 622</li>
-                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0 text-blue-400"></i>085 239 339 608</li>
-                    <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 shrink-0 text-blue-400"></i>hmifftunram@gmail.com</li>
-                </ul>
-            </div>
+        <div>
+            <h4 class="font-semibold text-white mb-5 text-sm">Kontak</h4>
+            <ul class="space-y-3 text-sm text-white/60">
+
+                <!-- Alamat -->
+                <li class="flex items-start gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 shrink-0 mt-0.5 text-blue-400"></i>
+                    <span>Ruang Prof. Morisco, FT-UNRAM</span>
+                </li>
+
+                <!-- Phone (grouped) -->
+                <li class="flex items-start gap-2">
+                    <i data-lucide="phone" class="w-4 h-4 shrink-0 mt-1 text-blue-400"></i>
+                    <div class="flex flex-col">
+                        <a href="tel:085955349622" class="hover:text-white transition">
+                            085 955 349 622
+                        </a>
+                        <a href="tel:085239339608" class="hover:text-white transition">
+                            085 239 339 608
+                        </a>
+                    </div>
+                </li>
+
+                <!-- Email -->
+                <li class="flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4 shrink-0 text-blue-400"></i>
+                    <a href="mailto:hmifftunram@gmail.com" class="hover:text-white transition">
+                        hmifftunram@gmail.com
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
         </div>
 
         <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
