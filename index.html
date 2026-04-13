@@ -1,1160 +1,1387 @@
 <!DOCTYPE html>
-    <html lang="id">
+<html lang="id">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Seniforma 2026 - Seminar Nasional Informatika Universitas Mataram | HMIF FT-UNRAM</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seniforma 2026 - Seminar Nasional Informatika Universitas Mataram</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        <!-- Lucide Icons (load early) -->
-        <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-        <!-- Tailwind CDN (official & reliable) -->
-        <script src="https://cdn.tailwindcss.com"></script>
-
-        <!-- AOS animation CSS -->
-        <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-        <!-- Tailwind custom theme -->
-        <script>
+    <script>
         tailwind.config = {
             theme: {
-            extend: {
+                extend: {
                     colors: {
-                    primary:   '#ffffff',
-                    secondary: '#f8fafc',
-                    card:      '#ffffff',
-                    accent: {
-                        blue:  '#1565C0',
-                        light: '#e0f2fe',
-                    },
-                    text: {
-                        primary: '#0f172a',
-                        muted:   '#64748b',
-                    },
-                    border: '#e2e8f0',
+                        primary: '#ffffff',
+                        secondary: '#f8fafc',
+                        card: '#ffffff',
+                        accent: {
+                            blue: '#1565C0',
+                            light: '#e0f2fe',
+                        },
+                        text: {
+                            primary: '#0f172a',
+                            muted: '#64748b',
+                        },
+                        border: '#e2e8f0',
                     },
                     fontFamily: {
-                    inter: ['Inter', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                     },
                     animation: {
                         'marquee': 'marquee 25s linear infinite',
                     },
                     keyframes: {
                         marquee: {
-                            '0%':   { transform: 'translateX(0%)' },
+                            '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-50%)' },
                         }
                     }
-                },
-            },
-        };
-        </script>
+                }
+            }
+        }
+    </script>
 
-        <!-- Inline CSS -->
-        <style>
-:root {
-    --bg-primary:   #ffffff;
-    --bg-secondary: #f8fafc;
-    --text-primary: #0f172a;
-    --text-muted:   #64748b;
-    --accent-blue:  #1565C0;
-    --border-color: #e2e8f0;
-}
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-muted: #64748b;
+            --accent-blue: #1565C0;
+            --border-color: #e2e8f0;
+        }
 
-html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; }
 
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-section { scroll-margin-top: 100px; }
+        section { scroll-margin-top: 100px; }
 
-.grid-wrapper { position: relative; background-color: #f8fafc; }
+        .grid-wrapper { position: relative; background-color: #f8fafc; }
 
-.grid-background {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image:
-        linear-gradient(to right,  #e2e8f0 1px, transparent 1px),
-        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
-    background-size: 20px 30px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+        .grid-background {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: 0;
+            background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+            background-size: 20px 30px;
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
             mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
-}
+        }
 
-.clean-card {
-    background: #ffffff;
-    border: 1px solid var(--border-color);
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.025);
-    transition: all 0.2s ease;
-}
+        .clean-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.025);
+            transition: all 0.2s ease;
+        }
 
-.clean-card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
-    transform: translateY(-2px);
-    border-color: #cbd5e1;
-}
+        .clean-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
+        }
 
-.carousel-container { position: relative; width: 100%; }
+        /* Hero Slider */
+        .hero-slider { position: relative; width: 100%; height: 100%; overflow: hidden; }
+        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; }
+        .hero-slide.active { opacity: 1; }
+        .hero-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-.carousel-track {
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    padding: 2.5rem 0;
-}
+        /* Carousel */
+        .carousel-container { position: relative; width: 100%; }
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            padding: 2.5rem 0;
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
 
-.carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-fade-edge {
+            position: absolute;
+            right: 0;
+            z-index: 10;
+            height: 100%;
+            width: 5%;
+            background: linear-gradient(to left, var(--bg-secondary), transparent);
+            pointer-events: none;
+        }
 
-.carousel-fade-edge {
-    position: absolute;
-    right: 0;
-    z-index: 10;
-    height: 100%;
-    width: 5%;
-    background: linear-gradient(to left, var(--bg-secondary), transparent);
-    pointer-events: none;
-}
+        .apple-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-radius: 1.5rem;
+            background-color: #f1f5f9;
+            overflow: hidden;
+            flex-shrink: 0;
+            height: 24rem;
+            width: 18rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
 
-.apple-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border-radius: 1.5rem;
-    background-color: #f1f5f9;
-    overflow: hidden;
-    flex-shrink: 0;
-    height: 24rem;
-    width: 18rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
+        @media (min-width: 768px) {
+            .apple-card { height: 35rem; width: 24rem; }
+        }
 
-@media (min-width: 768px) {
-    .apple-card { height: 35rem; width: 24rem; }
-}
+        .apple-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 20;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 40%);
+            pointer-events: none;
+        }
 
-.apple-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 20;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 45%);
-    pointer-events: none;
-}
+        .apple-card:hover { transform: scale(0.98); }
 
-.apple-card:hover { transform: scale(0.98); }
+        .apple-card-content {
+            position: relative;
+            z-index: 30;
+            padding: 2rem;
+            text-align: left;
+            width: 100%;
+        }
 
-.apple-card-content {
-    position: relative;
-    z-index: 30;
-    padding: 2rem;
-    text-align: left;
-    width: 100%;
-}
+        .apple-card-img {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: opacity 0.3s;
+        }
 
-.apple-card-img {
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s;
-}
+        /* Modal */
+        body.modal-open { overflow: hidden; }
 
-body.modal-open { overflow: hidden; }
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
 
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    overflow-y: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
-.modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content {
+            position: relative;
+            z-index: 60;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            max-width: 64rem;
+            width: 90%;
+            margin: 2.5rem auto;
+            padding: 2.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-.modal-content {
-    position: relative;
-    z-index: 60;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    max-width: 64rem;
-    width: 90%;
-    margin: 2.5rem auto;
-    padding: 2.5rem;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+        @media (max-width: 768px) {
+            .modal-content { width: 95%; padding: 1.5rem; margin: 1.5rem auto; }
+        }
 
-@media (max-width: 768px) {
-    .modal-content { width: 95%; padding: 1.5rem; margin: 1.5rem auto; }
-}
+        .modal-overlay.active .modal-content { transform: translateY(0); opacity: 1; }
 
-.modal-overlay.active .modal-content { transform: translateY(0); opacity: 1; }
+        /* Timeline */
+        .timeline-line {
+            width: 2px;
+            background: #e2e8f0;
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-.timeline-line {
-    width: 2px;
-    background: #e2e8f0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
+        @media (max-width: 768px) {
+            .timeline-line { left: 24px; transform: none; }
+        }
 
-@media (max-width: 768px) {
-    .timeline-line { left: 24px; transform: none; }
-}
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: white;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
 
-.timeline-dot-active { background: var(--accent-blue); box-shadow: 0 0 0 4px #dbeafe; }
+        .btn-primary:hover {
+            background-color: #334155;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-.btn-primary {
-    background-color: var(--text-primary);
-    color: white;
-    border-radius: 9999px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-primary);
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
 
-.btn-primary:hover { background-color: #334155; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            border-color: #cbd5e1;
+        }
 
-.btn-outline {
-    border: 1px solid var(--border-color);
-    background: white;
-    color: var(--text-primary);
-    border-radius: 9999px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
+        /* Hero dots */
+        .hero-dot {
+            width: 8px; height: 8px;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .hero-dot.active { background: white; width: 24px; }
+    </style>
+</head>
 
-.btn-outline:hover { background-color: var(--bg-secondary); border-color: #cbd5e1; }
+<body class="antialiased selection:bg-accent-blue selection:text-white">
 
-@keyframes marquee {
-    0%   { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-}
-
-.animate-marquee { animation: marquee 25s linear infinite; }
-        </style>
-    </head>
-
-    <body class="antialiased selection:bg-accent-blue selection:text-white">
-
-    <!-- MODAL -->
-    <div id="card-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-content">
-        <button id="close-modal" aria-label="Tutup modal"
-            class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-            <i data-lucide="x" class="h-5 w-5 text-gray-700"></i>
-        </button>
-        <p id="modal-category" class="text-sm font-medium text-accent-blue tracking-wide"></p>
-        <h3 id="modal-title" class="mt-2 text-2xl md:text-5xl font-bold text-text-primary tracking-tight"></h3>
-        <div id="modal-body" class="py-8 prose max-w-none text-text-muted"></div>
+    <!-- Modal -->
+    <div id="card-modal" class="modal-overlay">
+        <div class="modal-content" id="modal-inner">
+            <button id="close-modal" class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                <i data-lucide="x" class="h-5 w-5 text-gray-700"></i>
+            </button>
+            <p id="modal-category" class="text-sm font-medium text-accent-blue tracking-wide"></p>
+            <h3 id="modal-title" class="mt-2 text-2xl md:text-4xl font-bold text-text-primary tracking-tight"></h3>
+            <div id="modal-body" class="py-8 prose max-w-none text-text-muted"></div>
         </div>
     </div>
 
-    <!-- NAVBAR -->
-    <nav id="navbar"
-        class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 transition-all duration-500 bg-white py-3 rounded-2xl shadow-lg border border-border-color">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 transition-all duration-500 bg-white py-3 rounded-2xl shadow-lg border border-border-color">
         <div class="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" class="flex items-center gap-3 group">
-            <img src="img/LOGO_HMIF.webp" alt="HMIF Logo" class="w-10 h-10 object-contain" />
-            <div class="flex flex-col">
-            <span class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Seniforma 2026</span>
-            <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF FT-UNRAM</span>
-            </div>
-        </a>
-        <div class="hidden md:flex items-center gap-8 font-inter text-sm font-semibold text-text-muted">
-            <a href="#hero"             class="hover:text-accent-blue transition-all duration-300">Beranda</a>
-            <a href="#tentang"          class="hover:text-accent-blue transition-all duration-300">Tentang</a>
-            <a href="#carousel-section" class="hover:text-accent-blue transition-all duration-300">Speaker</a>
-            <a href="#topik"            class="hover:text-accent-blue transition-all duration-300">Topik</a>
-            <a href="#timeline"         class="hover:text-accent-blue transition-all duration-300">Timeline</a>
-            <a href="#venue"            class="hover:text-accent-blue transition-all duration-300">Venue</a>
-        </div>
-        <div class="hidden lg:flex items-center gap-6">
-            <div class="flex items-center gap-3 pr-2 border-r border-border-color/50">
-            <div class="w-11 h-11 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
-                <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
-            </div>
-            <div class="flex flex-col">
-                <span class="text-[11px] text-text-muted font-medium leading-none mb-1">Contact Us</span>
-                <span class="text-sm font-black text-accent-blue leading-none">085 738 979 920</span>
-            </div>
-            </div>
-            <a href="#panduan"
-            class="flex items-center gap-3 bg-[#42A5F5] hover:bg-blue-600 text-white px-7 py-3 rounded-full font-black shadow-lg transition-all transform hover:-translate-y-0.5 active:scale-95 group">
-            <div class="bg-white/20 p-1.5 rounded-lg group-hover:bg-white/30 transition-colors">
-                <i data-lucide="ticket" class="w-4 h-4 text-white"></i>
-            </div>
-            <span class="text-base tracking-tight">Submit!</span>
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="img/LOGO_HMIF.webp" alt="HMIF Logo" class="w-10 h-10 object-contain">
+                <div class="flex flex-col">
+                    <span class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Seniforma</span>
+                    <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF 2026</span>
+                </div>
             </a>
+
+            <div class="hidden md:flex items-center gap-8 font-inter text-sm font-semibold text-text-muted">
+                <a href="#hero" class="hover:text-accent-blue transition-all duration-300">Beranda</a>
+                <a href="#carousel-section" class="hover:text-accent-blue transition-all duration-300">Speaker</a>
+                <a href="#venue" class="hover:text-accent-blue transition-all duration-300">Venue</a>
+                <a href="#topik" class="hover:text-accent-blue transition-all duration-300">Topik</a>
+                <a href="#timeline" class="hover:text-accent-blue transition-all duration-300">Timeline</a>
+                <a href="#harga" class="hover:text-accent-blue transition-all duration-300">Biaya</a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6">
+                <div class="flex items-center gap-3 pr-2 border-r border-border-color/50">
+                    <div class="w-11 h-11 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
+                        <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[11px] text-text-muted font-medium leading-none mb-1">Contact Us</span>
+                        <span class="text-sm font-black text-accent-blue leading-none">082 293 100 170</span>
+                    </div>
+                </div>
+                <a href="#panduan" class="flex items-center gap-3 bg-[#42A5F5] hover:bg-blue-600 text-white px-7 py-3 rounded-full font-black shadow-lg transition-all transform hover:-translate-y-0.5 active:scale-95 group">
+                    <div class="bg-white/20 p-1.5 rounded-lg group-hover:bg-white/30 transition-colors">
+                        <i data-lucide="ticket" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <span class="text-base tracking-tight">Submit!</span>
+                </a>
+            </div>
+
+            <button class="md:hidden text-text-primary p-2 focus:outline-none" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2 focus:outline-none" aria-label="Buka menu">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-        </div>
-        <div id="mobile-menu"
-        class="fixed inset-x-0 top-20 mx-auto w-[90%] bg-white/90 backdrop-blur-2xl z-40 hidden flex-col items-center p-8 gap-6 rounded-3xl border border-white/20 shadow-2xl opacity-0 transition-all duration-300">
-        <a href="#hero"             class="mobile-link text-lg font-bold text-text-primary">Beranda</a>
-        <a href="#tentang"          class="mobile-link text-lg font-bold text-text-primary">Tentang</a>
-        <a href="#carousel-section" class="mobile-link text-lg font-bold text-text-primary">Speaker</a>
-        <a href="#topik"            class="mobile-link text-lg font-bold text-text-primary">Topik</a>
-        <a href="#timeline"         class="mobile-link text-lg font-bold text-text-primary">Timeline</a>
-        <a href="#venue"            class="mobile-link text-lg font-bold text-text-primary">Venue</a>
-        <a href="#panduan"
-            class="mobile-link btn-primary w-full text-center py-4 mt-2 bg-accent-blue text-white flex items-center justify-center gap-2">
-            <i data-lucide="ticket" class="w-5 h-5"></i> Submit!
-        </a>
+
+        <div id="mobile-menu" class="fixed inset-x-0 top-20 mx-auto w-[90%] bg-white/90 backdrop-blur-2xl z-40 hidden flex-col items-center p-8 gap-6 rounded-3xl border border-white/20 shadow-2xl opacity-0 transition-all duration-300">
+            <a href="#hero" class="mobile-link text-lg font-bold text-text-primary">Beranda</a>
+            <a href="#carousel-section" class="mobile-link text-lg font-bold text-text-primary">Speaker</a>
+            <a href="#venue" class="mobile-link text-lg font-bold text-text-primary">Venue</a>
+            <a href="#topik" class="mobile-link text-lg font-bold text-text-primary">Topik</a>
+            <a href="#timeline" class="mobile-link text-lg font-bold text-text-primary">Timeline</a>
+            <a href="#harga" class="mobile-link text-lg font-bold text-text-primary">Biaya</a>
+            <a href="#panduan" class="mobile-link btn-primary w-full text-center py-4 mt-2 bg-accent-blue text-white flex items-center justify-center gap-2">
+                <i data-lucide="ticket" class="w-5 h-5"></i> Submit!
+            </a>
         </div>
     </nav>
 
-    <!-- SECTION 1: HERO -->
+    <!-- SECTION 1: Hero -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-text-primary">
-        <div class="absolute inset-0 z-0">
-        <img src="https://suarantb.com/wp-content/uploads/2024/10/Kampus-Unram-foto-utama.jpeg"
-            alt="Kampus Universitas Mataram" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+
+        <!-- Hero Slider -->
+        <div class="absolute inset-0 z-0 hero-slider" id="heroSlider">
+            <div class="hero-slide active" data-slide="0">
+                <img src="img/Hero1.jpg" alt="Seniforma 2026">
+            </div>
+            <div class="hero-slide" data-slide="1">
+                <img src="img/Hero2.jpg" alt="Seniforma 2026">
+            </div>
+            <div class="hero-slide" data-slide="2">
+                <img src="img/Hero3.jpg" alt="Seniforma 2026">
+            </div>
+            <div class="hero-slide" data-slide="3">
+                <img src="img/Hero4.jpg" alt="Seniforma 2026">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 w-full relative z-10 py-20 text-center">
-        <div class="flex flex-col items-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold mb-8" data-aos="fade-down">
-            <i data-lucide="sparkles" class="w-4 h-4 text-accent-blue"></i>
-            Official Website Seniforma 2026 — Seminar Nasional Informatika Universitas Mataram
-            </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6" data-aos="fade-up" data-aos-delay="100">
-            Innovation and <span class="text-accent-blue">Emerging Technologies</span><br class="hidden md:block" />
-            in Informatics.
-            </h1>
-            <p class="text-base md:text-lg text-white/80 mb-4 max-w-2xl font-normal leading-relaxed mx-auto px-4" data-aos="fade-up" data-aos-delay="150">
-            for National Digital Advancement
-            </p>
-            <p class="text-sm md:text-base text-white/60 mb-10 max-w-2xl font-light leading-relaxed mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
-            Forum ilmiah nasional yang menghadirkan para peneliti, akademisi, dan praktisi teknologi untuk mendorong
-            kemajuan digital bangsa melalui kolaborasi dan inovasi riset.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto" data-aos="fade-up" data-aos-delay="300">
-            <a href="#panduan" class="btn-primary bg-accent-blue hover:bg-blue-600 border-none text-white px-10 py-4 w-full sm:w-auto text-center text-base shadow-xl shadow-blue-900/20">
-                Submit Paper via CMT
-            </a>
-            <a href="#timeline" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-4 w-full sm:w-auto rounded-full font-medium transition-all text-center">
-                Lihat Timeline
-            </a>
-            </div>
-            <p class="mt-8 text-white/70 text-sm font-medium tracking-wide flex items-center justify-center gap-2" data-aos="fade-up" data-aos-delay="400">
-            <span class="w-1.5 h-1.5 bg-accent-blue rounded-full"></span>
-            Hubungi Admin: <span class="text-white font-bold ml-1">085 738 979 920</span>
-            </p>
-            <div class="mt-16 flex flex-wrap justify-center items-center gap-8 md:gap-16" data-aos="fade-up" data-aos-delay="400">
-            <div class="flex flex-col items-center md:items-start">
-                <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Hari Pelaksanaan</span>
-                <div class="flex items-center gap-2 text-white font-bold">
-                <i data-lucide="calendar" class="w-4 h-4 text-accent-blue"></i>
-                <span class="text-base md:text-lg">4 Juli 2026</span>
+
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-20 py-20 text-center">
+            <div class="flex flex-col items-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold mb-8" data-aos="fade-down">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-blue"></i>
+                    Official Website Seminar Nasional Informatika Universitas Mataram 2026
                 </div>
-            </div>
-            <div class="hidden md:block w-px h-10 bg-white/20"></div>
-            <div class="flex flex-col items-center md:items-start">
-                <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Format Hybrid</span>
-                <div class="flex flex-col items-center md:items-start gap-1 text-white">
-                <div class="flex items-center gap-2 font-bold">
-                    <i data-lucide="map-pin" class="w-4 h-4 text-accent-blue"></i>
-                    <span class="text-base md:text-lg">Ruang Prof. Morisco</span>
+
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3" data-aos="fade-up" data-aos-delay="100">
+                    Innovation and Emerging Technologies in Informatics
+                </h1>
+                <p class="text-lg md:text-xl font-semibold text-accent-blue mb-4" data-aos="fade-up" data-aos-delay="150">
+                    for National Digital Advancement
+                </p>
+
+                <p class="text-sm md:text-base text-white/80 mb-10 max-w-2xl font-normal leading-relaxed mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
+                    Forum ilmiah nasional yang menghadirkan para peneliti, akademisi, dan praktisi teknologi untuk mendorong kemajuan digital bangsa melalui kolaborasi dan inovasi riset.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#panduan" class="btn-primary bg-accent-blue hover:bg-blue-600 border-none text-white px-10 py-4 w-full sm:w-auto text-center text-base shadow-xl shadow-blue-900/20">
+                        Cara Submit Paper
+                    </a>
+                    <a href="#attendee" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-4 w-full sm:w-auto rounded-full font-medium transition-all text-center flex justify-center items-center gap-2">
+                        Daftar Attendee
+                    </a>
                 </div>
-                <span class="text-[10px] text-white/60 font-medium">Fakultas Teknik, Universitas Mataram &amp; Online</span>
+
+                <p class="mt-8 text-white/70 text-sm font-medium tracking-wide flex items-center justify-center gap-2" data-aos="fade-up" data-aos-delay="400">
+                    <span class="w-1.5 h-1.5 bg-accent-blue rounded-full"></span>
+                    Hubungi Admin: <span class="text-white font-bold ml-1">082 293 100 170</span>
+                </p>
+
+                <div class="mt-16 flex flex-wrap justify-center items-center gap-8 md:gap-12" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex flex-col items-center">
+                        <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Hari Pelaksanaan</span>
+                        <div class="flex items-center gap-2 text-white font-bold">
+                            <i data-lucide="calendar" class="w-4 h-4 text-accent-blue"></i>
+                            <span class="text-base md:text-lg">4 Juli 2026</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-px h-10 bg-white/20"></div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Format Hybrid</span>
+                        <div class="flex items-center gap-2 text-white font-bold">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-blue"></i>
+                            <span class="text-base md:text-lg">Ruang Prof. Morisco</span>
+                        </div>
+                        <span class="text-[10px] text-white/60 font-medium mt-1">Fakultas Teknik, Universitas Mataram &amp; Online</span>
+                    </div>
+                    <div class="hidden md:block w-px h-10 bg-white/20"></div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Penyelenggara</span>
+                        <div class="flex items-center gap-2 text-white font-bold">
+                            <i data-lucide="users" class="w-4 h-4 text-accent-blue"></i>
+                            <span class="text-base md:text-lg">HMIF FT-UNRAM</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="hidden md:block w-px h-10 bg-white/20"></div>
-            <div class="flex flex-col items-center md:items-start">
-                <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Penyelenggara</span>
-                <div class="flex items-center gap-2 text-white font-bold">
-                <i data-lucide="university" class="w-4 h-4 text-accent-blue"></i>
-                <span class="text-base md:text-lg">HMIF FT-UNRAM</span>
+
+                <!-- Slider dots -->
+                <div class="mt-10 flex items-center gap-2" id="heroDots">
+                    <button class="hero-dot active" data-dot="0"></button>
+                    <button class="hero-dot" data-dot="1"></button>
+                    <button class="hero-dot" data-dot="2"></button>
+                    <button class="hero-dot" data-dot="3"></button>
                 </div>
-            </div>
             </div>
         </div>
-        </div>
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-bounce">
-        <span class="text-[10px] uppercase tracking-widest font-bold">Scroll</span>
-        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-bounce z-20">
+            <span class="text-[10px] uppercase tracking-widest font-bold">Scroll</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
         </div>
     </section>
 
-    <!-- SECTION 2: TENTANG -->
+    <!-- SECTION 2: Tentang Seminar -->
     <section id="tentang" class="py-32 bg-secondary grid-wrapper relative">
         <div class="grid-background opacity-30"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center font-inter">
-            <div data-aos="fade-right">
-            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block underline decoration-accent-blue/30 underline-offset-8">Conference Overview</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">Seminar Nasional Informatika Universitas Mataram 2026</h2>
-            <div class="space-y-6 text-base md:text-lg text-text-muted leading-relaxed">
-                <p><span class="text-text-primary font-semibold">Seniforma 2026 — Seminar Nasional Informatika Universitas Mataram</span> adalah forum ilmiah nasional yang diselenggarakan oleh <span class="text-text-primary font-semibold">Himpunan Mahasiswa Informatika (HMIF) Fakultas Teknik, Universitas Mataram</span>, bekerja sama dengan Program Studi Teknik Informatika (PSTI) FT-UNRAM.</p>
-                <p>Konferensi ini hadir sebagai wadah bagi para peneliti, akademisi, mahasiswa, dan praktisi untuk mempresentasikan karya ilmiah terbaik mereka, membangun jejaring riset, serta berkontribusi pada kemajuan teknologi informasi di tingkat nasional.</p>
-                <p>Seniforma 2026 mengusung tema <span class="text-text-primary font-semibold italic">"Innovation and Emerging Technologies in Informatics for National Digital Advancement"</span> — sebuah ajakan untuk bersama-sama mempercepat transformasi digital Indonesia melalui inovasi yang berkelanjutan.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center font-inter">
+                <div data-aos="fade-right">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block underline decoration-accent-blue/30 underline-offset-8">Conference Overview</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">Seminar Nasional Informatika Universitas Mataram 2026</h2>
+                    <div class="space-y-5 text-base md:text-lg text-text-muted leading-relaxed">
+                        <p>
+                            <span class="text-text-primary font-semibold">Seniforma 2026</span> — Seminar Nasional Informatika Universitas Mataram adalah forum ilmiah nasional yang diselenggarakan oleh <span class="text-text-primary font-semibold">Himpunan Mahasiswa Informatika (HMIF) Fakultas Teknik, Universitas Mataram</span>, bekerja sama dengan Program Studi Teknik Informatika (PSTI) FT-UNRAM.
+                        </p>
+                        <p>
+                            Konferensi ini hadir sebagai wadah bagi para peneliti, akademisi, mahasiswa, dan praktisi untuk mempresentasikan karya ilmiah terbaik mereka, membangun jejaring riset, serta berkontribusi pada kemajuan teknologi informasi di tingkat nasional.
+                        </p>
+                        <p>
+                            Seniforma 2026 mengusung tema <span class="text-text-primary font-semibold italic">"Innovation and Emerging Technologies in Informatics for National Digital Advancement"</span> — sebuah ajakan untuk bersama-sama mempercepat transformasi digital Indonesia melalui inovasi yang berkelanjutan.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 grid grid-cols-3 gap-6">
+                        <div class="p-6 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow text-center relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
+                            <h4 class="text-2xl font-bold text-text-primary mb-1">Hybrid</h4>
+                            <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Format Acara</p>
+                        </div>
+                        <div class="p-6 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow text-center relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
+                            <h4 class="text-2xl font-bold text-text-primary mb-1">6</h4>
+                            <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Track Topik</p>
+                        </div>
+                        <div class="p-6 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow text-center relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
+                            <h4 class="text-2xl font-bold text-text-primary mb-1">eBook</h4>
+                            <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Publikasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8 relative" data-aos="fade-left">
+                    <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100/50 blur-[100px] rounded-full"></div>
+
+                    <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
+                            <i data-lucide="book-open" class="w-7 h-7 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Publikasi eBook Resmi</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Seluruh paper yang dinyatakan lolos seleksi akan dipublikasikan dalam <span class="text-accent-blue font-medium">eBook resmi Seniforma 2026</span> yang tersedia di website konferensi. Paper terbaik mendapat peluang publikasi lebih lanjut.</p>
+                        </div>
+                    </div>
+
+                    <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
+                            <i data-lucide="users" class="w-7 h-7 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Networking &amp; Kolaborasi</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Forum ini memfasilitasi sesi diskusi panel dan networking bersama para keynote speaker dari PSTI FT-UNRAM serta para peneliti dan akademisi dari seluruh Indonesia.</p>
+                        </div>
+                    </div>
+
+                    <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
+                            <i data-lucide="award" class="w-7 h-7 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-text-primary mb-2">Penghargaan Riset</h4>
+                            <p class="text-sm text-text-muted leading-relaxed">Kami memberikan apresiasi khusus bagi <span class="font-semibold text-text-primary italic">Best Paper and Best Presenter Award</span> sebagai bentuk motivasi dan pengakuan atas keunggulan riset peserta.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mt-12 grid grid-cols-3 gap-6">
-                <div class="p-6 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
-                <h4 class="text-2xl font-bold text-text-primary mb-1">Hybrid</h4>
-                <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Format Acara</p>
-                </div>
-                <div class="p-6 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
-                <h4 class="text-2xl font-bold text-text-primary mb-1">6</h4>
-                <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Track Topik</p>
-                </div>
-                <div class="p-6 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
-                <h4 class="text-2xl font-bold text-text-primary mb-1">eBook</h4>
-                <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Publikasi</p>
-                </div>
-            </div>
-            </div>
-            <div class="space-y-8 relative" data-aos="fade-left">
-            <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100/50 blur-[100px] rounded-full"></div>
-            <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
-                <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
-                <i data-lucide="book-open" class="w-7 h-7 text-accent-blue"></i>
-                </div>
-                <div>
-                <h4 class="font-bold text-lg text-text-primary mb-2">Publikasi eBook Resmi</h4>
-                <p class="text-sm text-text-muted leading-relaxed">Seluruh paper yang dinyatakan lolos seleksi akan dipublikasikan dalam <span class="text-accent-blue font-medium">eBook resmi Seniforma 2026</span> yang tersedia di website konferensi. Paper terbaik mendapat peluang publikasi lebih lanjut.</p>
-                </div>
-            </div>
-            <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
-                <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
-                <i data-lucide="users" class="w-7 h-7 text-accent-blue"></i>
-                </div>
-                <div>
-                <h4 class="font-bold text-lg text-text-primary mb-2">Networking &amp; Kolaborasi</h4>
-                <p class="text-sm text-text-muted leading-relaxed">Forum ini memfasilitasi sesi diskusi panel dan networking bersama para keynote speaker dari PSTI FT-UNRAM serta para peneliti dan akademisi dari seluruh Indonesia.</p>
-                </div>
-            </div>
-            <div class="clean-card p-8 flex items-start gap-6 bg-white/80 backdrop-blur-sm">
-                <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
-                <i data-lucide="award" class="w-7 h-7 text-accent-blue"></i>
-                </div>
-                <div>
-                <h4 class="font-bold text-lg text-text-primary mb-2">Penghargaan Riset</h4>
-                <p class="text-sm text-text-muted leading-relaxed">Kami memberikan apresiasi khusus bagi <span class="font-semibold text-text-primary italic">Best Paper Award</span> sebagai bentuk motivasi dan pengakuan atas keunggulan riset peserta.</p>
-                </div>
-            </div>
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- SECTION 3: KEYNOTE -->
+    <!-- SECTION 3: Keynote Highlight (Opening) -->
     <section id="keynote" class="py-24 bg-white border-b border-border-color">
         <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
-            <div class="w-full lg:w-1/2" data-aos="fade-right">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                <div class="w-full aspect-[4/3] bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 flex items-center justify-center">
-                <div class="text-center">
-                    <div class="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                    <i data-lucide="mic" class="w-12 h-12 text-white/40"></i>
+            <div class="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="img/REKTOR-UNRAM.jpeg" alt="Prof. Dr. Sukardi" class="w-full aspect-[4/3] object-cover transition-all duration-700">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-white font-bold text-lg">Prof. Dr. Sukardi, M.Pd.</p>
+                            <p class="text-white/70 text-sm">Rektor Universitas Mataram</p>
+                        </div>
                     </div>
-                    <p class="text-white/50 text-sm font-medium tracking-widest uppercase">Segera Diumumkan</p>
                 </div>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <p class="text-white font-bold text-lg">Rektor</p>
-                <p class="text-white/70 text-sm">Rektor Universitas Mataram</p>
-                </div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2" data-aos="fade-left">
-            <h3 class="text-3xl md:text-5xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">
-                Inovasi dan Teknologi yang Muncul dalam Informatika<br class="hidden md:block" />
-                untuk Kemajuan Digital Nasional.
-            </h3>
-            <p class="text-lg text-text-muted mb-10 leading-relaxed font-light">
-                Tema ini menekankan pentingnya peran inovasi dan perkembangan teknologi terkini dalam bidang informatika sebagai pendorong utama kemajuan digital di tingkat nasional.
-            </p>
-            <div class="flex flex-wrap gap-8 items-center border-t border-border-color pt-8">
-                <div class="flex flex-col">
-                <span class="text-sm font-bold text-text-primary">UNIVERSITAS MATARAM</span>
-                <span class="text-xs text-text-muted">Teknik Informatika</span>
-                </div>
-                <div class="w-px h-8 bg-border-color hidden sm:block"></div>
-                <div class="flex flex-col">
-                <span class="text-sm font-bold text-text-primary">5 Keynote · 3 Moderator</span>
-                <span class="text-xs text-text-muted">Nama akan diumumkan segera</span>
+
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block">Tema Seminar Nasional Informatika Unviersitas Mataram (Seniforma) 2026</span>
+                    <h3 class="text-3xl md:text-5xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">
+                        Inovasi dan Teknologi yang Muncul dalam Informatika untuk Kemajuan Digital Nasional.
+                    </h3>
+                    <p class="text-lg text-text-muted mb-10 leading-relaxed font-light">
+                        Tema ini menekankan pentingnya peran inovasi dan perkembangan teknologi terkini dalam bidang informatika sebagai pendorong utama kemajuan digital di tingkat nasional.
+                    </p>
+                    <div class="flex flex-wrap gap-8 items-center border-t border-border-color pt-8">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-text-primary">UNIVERSITAS MATARAM</span>
+                            <span class="text-xs text-text-muted">Teknik Informatika</span>
+                        </div>
+                        <div class="w-px h-8 bg-border-color hidden sm:block"></div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-text-primary">5 Keynote · 3 Moderator</span>
+                            <span class="text-xs text-text-muted">Nama akan diumumkan segera</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- SECTION 4: SPEAKER CAROUSEL -->
+    <!-- SECTION 4: Keynote Speakers Carousel -->
     <section id="carousel-section" class="py-24 bg-primary border-t border-border-color">
         <div class="max-w-7xl mx-auto px-6 mb-10 text-center md:text-left">
-        <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Keynote Speakers</span>
-        <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight max-w-2xl">Our Keynote Speakers.</h2>
-        <p class="text-text-muted mt-3 text-sm">Klik pada foto untuk melihat profil dan topik keynote speaker.</p>
-        </div>
-        <div class="carousel-container relative w-full">
-        <div class="carousel-fade-edge hidden md:block"></div>
-        <div class="carousel-track pl-6 md:pl-0 mx-auto max-w-7xl gap-4 md:gap-6" id="apple-carousel">
-            <div class="apple-card" data-index="0">
-            <div class="apple-card-content">
-                <p class="text-sm font-medium text-white/90">Keynote Speaker #1</p>
-                <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Cahya Damarjati, S.T., M. Eng., Ph.D.</p>
-            </div>
-            <div class="apple-card-img bg-gradient-to-br from-indigo-900 to-blue-900" style="position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;">
-                <i data-lucide="user" style="width:80px;height:80px;color:rgba(255,255,255,0.15)"></i>
-            </div>
-            </div>
-            <div class="apple-card" data-index="1">
-            <div class="apple-card-content">
-                <p class="text-sm font-medium text-white/90">Keynote Speaker #2</p>
-                <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.</p>
-            </div>
-            <div class="apple-card-img bg-gradient-to-br from-indigo-900 to-blue-900" style="position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;">
-                <i data-lucide="user" style="width:80px;height:80px;color:rgba(255,255,255,0.15)"></i>
-            </div>
-            </div>
-            <div class="apple-card" data-index="2">
-            <div class="apple-card-content">
-                <p class="text-sm font-medium text-white/90">Keynote Speaker #3</p>
-                <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Eko Fajar Cahyadi S.T., M.T. Ph.D.</p>
-            </div>
-            <div class="apple-card-img" style="position:absolute;inset:0;z-index:10;">
-                <img src="KeynoteSpeaker/Eko Fajar Cahyadi.webp" alt="Eko Fajar Cahyadi" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            </div>
-            <div class="apple-card" data-index="3">
-            <div class="apple-card-content">
-                <p class="text-sm font-medium text-white/90">Keynote Speaker #4</p>
-                <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Dr. Ario Yudo Husodo S.T., M.T</p>
-            </div>
-            <div class="apple-card-img" style="position:absolute;inset:0;z-index:10;">
-                <img src="KeynoteSpeaker/Ario Yudo Husodo.webp" alt="Ario Yudo Husodo" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            </div>
-            <div class="apple-card" data-index="4">
-            <div class="apple-card-content">
-                <p class="text-sm font-medium text-white/90">Keynote Speaker #5</p>
-                <p class="mt-2 text-xl md:text-3xl font-semibold text-white leading-tight">Mariana Syamsudin, S.T., M.T., Ph.D.</p>
-            </div>
-            <div class="apple-card-img" style="position:absolute;inset:0;z-index:10;">
-                <img src="KeynoteSpeaker/Mariana Syamsudin.jpeg" alt="Mariana Syamsudin" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            </div>
-            <div class="w-4 md:w-[33%] flex-shrink-0"></div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 mt-6 flex justify-end gap-2">
-            <button id="btn-prev" aria-label="Sebelumnya" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
-            <i data-lucide="arrow-left" class="h-5 w-5 text-gray-600"></i>
-            </button>
-            <button id="btn-next" aria-label="Selanjutnya" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
-            <i data-lucide="arrow-right" class="h-5 w-5 text-gray-600"></i>
-            </button>
-        </div>
+            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Speaker Highlights</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight max-w-2xl">Our Keynote Speakers.</h2>
+            <p class="text-text-muted mt-3 text-sm">Klik pada foto untuk melihat profil dan topik keynote speaker.</p>
         </div>
 
-        <!-- Moderators -->
-        <div class="max-w-7xl mx-auto px-6 mt-20">
-        <div class="mb-8 text-center md:text-left">
-            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-2 block">Moderators</span>
-            <h3 class="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">Our Moderators.</h3>
-            <p class="text-text-muted mt-2 text-sm">Berikut adalah moderator yang akan memandu diskusi dan jalannya acara.</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            <div class="flex items-center gap-4 p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue/30 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="0">
-            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center shrink-0">
-                <i data-lucide="user" class="w-7 h-7 text-blue-300"></i>
+        <div class="carousel-container relative w-full">
+            <div class="carousel-fade-edge hidden md:block"></div>
+
+            <div class="carousel-track pl-6 md:pl-[calc((100vw-80rem)/2+1.5rem)] gap-4 md:gap-6" id="apple-carousel">
+
+                <!-- Speaker 1: Cahya Damarjati -->
+                <div class="apple-card" data-index="0">
+                    <div class="apple-card-content">
+                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Cahya Damarjati, S.T., M.Eng., Ph.D.</p>
+                    </div>
+                    <div class="apple-card-img bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center" style="position:absolute;inset:0;z-index:10;">
+                        <i data-lucide="user" class="w-24 h-24 text-white/20"></i>
+                    </div>
+                </div>
+
+                <!-- Speaker 2: David Agustriawan -->
+                <div class="apple-card" data-index="1">
+                    <div class="apple-card-content">
+                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.</p>
+                    </div>
+                    <div class="apple-card-img bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center" style="position:absolute;inset:0;z-index:10;">
+                        <i data-lucide="user" class="w-24 h-24 text-white/20"></i>
+                    </div>
+                </div>
+
+                <!-- Speaker 3: Eko Fajar Cahyadi (ada foto) -->
+                <div class="apple-card" data-index="2">
+                    <div class="apple-card-content">
+                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Eko Fajar Cahyadi, S.T., M.T., Ph.D.</p>
+                    </div>
+                    <img src="KeynoteSpeaker/Eko Fajar Cahyadi.webp" alt="Eko Fajar Cahyadi" class="apple-card-img">
+                </div>
+
+                <!-- Speaker 4: Ario Yudo Husodo (ada foto) -->
+                <div class="apple-card" data-index="3">
+                    <div class="apple-card-content">
+                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Dr. Ario Yudo Husodo, S.T., M.T.</p>
+                    </div>
+                    <img src="KeynoteSpeaker/Ario Yudo Husodo.webp" alt="Ario Yudo Husodo" class="apple-card-img">
+                </div>
+
+                <!-- Speaker 5: Mariana Syamsudin (ada foto) -->
+                <div class="apple-card" data-index="4">
+                    <div class="apple-card-content">
+                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Mariana Syamsudin, S.T., M.T., Ph.D.</p>
+                    </div>
+                    <img src="KeynoteSpeaker/Mariana Syamsudin.webp" alt="Mariana Syamsudin" class="apple-card-img">
+                </div>
+
+                <div class="w-4 md:w-[33%] flex-shrink-0"></div>
             </div>
-            <div>
-                <p class="text-[10px] font-bold text-accent-blue uppercase tracking-widest mb-0.5">Moderator #1</p>
-                <p class="text-sm font-semibold text-text-primary">Segera Diumumkan</p>
-                <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
+
+            <div class="max-w-7xl mx-auto px-6 mt-6 flex justify-end gap-2">
+                <button id="btn-prev" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
+                    <i data-lucide="arrow-left" class="h-5 w-5 text-gray-600"></i>
+                </button>
+                <button id="btn-next" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
+                    <i data-lucide="arrow-right" class="h-5 w-5 text-gray-600"></i>
+                </button>
             </div>
-            </div>
-            <div class="flex items-center gap-4 p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue/30 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center shrink-0">
-                <i data-lucide="user" class="w-7 h-7 text-blue-300"></i>
-            </div>
-            <div>
-                <p class="text-[10px] font-bold text-accent-blue uppercase tracking-widest mb-0.5">Moderator #2</p>
-                <p class="text-sm font-semibold text-text-primary">Segera Diumumkan</p>
-                <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
-            </div>
-            </div>
-            <div class="flex items-center gap-4 p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue/30 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center shrink-0">
-                <i data-lucide="user" class="w-7 h-7 text-blue-300"></i>
-            </div>
-            <div>
-                <p class="text-[10px] font-bold text-accent-blue uppercase tracking-widest mb-0.5">Moderator #3</p>
-                <p class="text-sm font-semibold text-text-primary">Segera Diumumkan</p>
-                <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
-            </div>
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- SECTION 5: TOPIK -->
+    <!-- SECTION: Moderators -->
+    <section id="moderators" class="py-20 bg-secondary border-t border-border-color">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Moderators</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-primary tracking-tight">Our Moderators.</h2>
+                <p class="text-text-muted mt-3 text-sm max-w-xl mx-auto">Berikut adalah moderator yang akan memandu diskusi dan jalannya acara.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <div class="clean-card p-6 text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="user" class="w-8 h-8 text-accent-blue"></i>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-1">Moderator #1</p>
+                    <h4 class="font-semibold text-text-primary text-sm mb-1">Segera Diumumkan</h4>
+                    <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
+                </div>
+                <div class="clean-card p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="user" class="w-8 h-8 text-accent-blue"></i>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-1">Moderator #2</p>
+                    <h4 class="font-semibold text-text-primary text-sm mb-1">Segera Diumumkan</h4>
+                    <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
+                </div>
+                <div class="clean-card p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="user" class="w-8 h-8 text-accent-blue"></i>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-1">Moderator #3</p>
+                    <h4 class="font-semibold text-text-primary text-sm mb-1">Segera Diumumkan</h4>
+                    <p class="text-xs text-text-muted">PSTI FT-UNRAM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Research Tracks -->
     <section id="topik" class="py-24 bg-secondary grid-wrapper relative">
         <div class="grid-background opacity-40"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Research Tracks</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight">Lingkup Topik Paper</h2>
-            <p class="text-text-muted mt-5 max-w-2xl mx-auto leading-relaxed">Kami mengundang para peneliti, akademisi, dan praktisi untuk mempresentasikan karya ilmiah terbaik mereka dalam 6 track topik berikut:</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="0">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
-            <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="brain" class="w-6 h-6"></i></div>
-            <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">AI &amp; Machine Learning</h4>
-            <p class="text-sm text-text-muted leading-relaxed relative z-10">Implementasi algoritma cerdas, Deep Learning, Computer Vision, dan pemrosesan bahasa alami (NLP).</p>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Research Tracks</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight">Lingkup Topik Paper</h2>
+                <p class="text-text-muted mt-5 max-w-2xl mx-auto leading-relaxed">
+                    Kami mengundang para peneliti, akademisi, dan praktisi untuk mempresentasikan karya ilmiah terbaik mereka dalam 6 track topik berikut:
+                </p>
             </div>
-            <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="50">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
-            <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="bar-chart-2" class="w-6 h-6"></i></div>
-            <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Data Analytics &amp; Data Science</h4>
-            <p class="text-sm text-text-muted leading-relaxed relative z-10">Big Data, Data Mining, Business Intelligence, dan visualisasi data untuk pengambilan keputusan berbasis data.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                    <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="brain" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">AI &amp; Machine Learning</h4>
+                    <p class="text-sm text-text-muted leading-relaxed relative z-10">Implementasi algoritma cerdas, Deep Learning, Computer Vision, dan pemrosesan bahasa alami (NLP).</p>
+                </div>
+
+                <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="50">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                    <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="bar-chart-2" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Data Analytics &amp; Data Science</h4>
+                    <p class="text-sm text-text-muted leading-relaxed relative z-10">Big Data, Data Mining, Business Intelligence, dan visualisasi data untuk pengambilan keputusan berbasis data.</p>
+                </div>
+
+                <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                    <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="code" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Software Engineering &amp; System Development</h4>
+                    <p class="text-sm text-text-muted leading-relaxed relative z-10">Metodologi pengembangan perangkat lunak, DevOps, arsitektur microservices, dan rekayasa sistem.</p>
+                </div>
+
+                <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="150">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                    <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Cybersecurity &amp; Network Technology</h4>
+                    <p class="text-sm text-text-muted leading-relaxed relative z-10">Keamanan jaringan, kriptografi modern, perlindungan privasi data, dan forensik digital.</p>
+                </div>
+
+                <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                    <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="cpu" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Internet of Things &amp; Cloud Computing</h4>
+                    <p class="text-sm text-text-muted leading-relaxed relative z-10">Integrasi perangkat cerdas, sensor M2M, komputasi awan, dan edge computing.</p>
+                </div>
+
+                <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="250">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                    <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="monitor" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Human-Computer Interaction &amp; UI/UX</h4>
+                    <p class="text-sm text-text-muted leading-relaxed relative z-10">Desain antarmuka pengguna, pengalaman pengguna, aksesibilitas teknologi, dan interaksi manusia-komputer.</p>
+                </div>
             </div>
-            <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="100">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
-            <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="code" class="w-6 h-6"></i></div>
-            <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Software Engineering &amp; System Development</h4>
-            <p class="text-sm text-text-muted leading-relaxed relative z-10">Metodologi pengembangan perangkat lunak, DevOps, arsitektur microservices, dan rekayasa sistem.</p>
+
+            <!-- Submit/Template/Panduan Cards -->
+            <div class="mt-20 border-t border-border-color pt-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up">
+                    <a href="#" class="group p-10 bg-text-primary rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="send" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white text-2xl font-bold mb-2">Submit Paper</h3>
+                            <p class="text-white/60 text-sm">Unggah naskah Anda melalui portal CMT (Conference Management Toolkit).</p>
+                        </div>
+                    </a>
+                    <a href="Template/FORMAT_ABSTRAK_SENIFORMA_2026.pdf" target="_blank" class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
+                        <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="file-text" class="w-6 h-6 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-text-primary text-2xl font-bold mb-2">Template Abstrak</h3>
+                            <p class="text-text-muted text-sm">Download template abstrak resmi Seniforma 2026 (PDF).</p>
+                        </div>
+                    </a>
+                    <a href="Template/FORMAT_FULL_PAPER_SENIFORMA_2026.pdf" target="_blank" class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
+                        <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="download-cloud" class="w-6 h-6 text-accent-blue"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-text-primary text-2xl font-bold mb-2">Template Full Paper</h3>
+                            <p class="text-text-muted text-sm">Download template full paper resmi Seniforma 2026 (PDF).</p>
+                        </div>
+                    </a>
+                    <a href="#panduan" class="group p-10 bg-accent-blue rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
+                        <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white text-2xl font-bold mb-2">Panduan Penulisan</h3>
+                            <p class="text-white/80 text-sm">Baca aturan penulisan &amp; panduan submit via CMT.</p>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="150">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
-            <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
-            <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Cybersecurity &amp; Network Technology</h4>
-            <p class="text-sm text-text-muted leading-relaxed relative z-10">Keamanan jaringan, kriptografi modern, perlindungan privasi data, dan forensik digital.</p>
-            </div>
-            <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
-            <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="cpu" class="w-6 h-6"></i></div>
-            <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Internet of Things &amp; Cloud Computing</h4>
-            <p class="text-sm text-text-muted leading-relaxed relative z-10">Integrasi perangkat cerdas, sensor M2M, komputasi awan, dan edge computing.</p>
-            </div>
-            <div class="group bg-white/60 backdrop-blur-md border border-white p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all duration-500 overflow-hidden relative" data-aos="fade-up" data-aos-delay="250">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
-            <div class="p-3 bg-blue-50 text-accent-blue rounded-2xl w-fit mb-6 relative z-10"><i data-lucide="monitor-smartphone" class="w-6 h-6"></i></div>
-            <h4 class="font-bold text-lg text-text-primary mb-3 relative z-10">Human-Computer Interaction &amp; UI/UX</h4>
-            <p class="text-sm text-text-muted leading-relaxed relative z-10">Desain antarmuka pengguna, pengalaman pengguna, aksesibilitas teknologi, dan interaksi manusia-komputer.</p>
-            </div>
-        </div>
-        <div class="mt-20 border-t border-border-color pt-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up">
-            <a href="#" class="group p-10 bg-text-primary rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
-                <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="send" class="w-6 h-6 text-white"></i></div>
-                <div><h3 class="text-white text-2xl font-bold mb-2">Submit Paper</h3><p class="text-white/60 text-sm">Unggah naskah Anda melalui portal CMT (Conference Management Toolkit).</p></div>
-            </a>
-            <a href="Template/FORMAT_ABSTRAK_SENIFORMA_2026.pdf" target="_blank" class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
-                <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="file-text" class="w-6 h-6 text-accent-blue"></i></div>
-                <div><h3 class="text-text-primary text-2xl font-bold mb-2">Template Abstrak</h3><p class="text-text-muted text-sm">Download template abstrak resmi Seniforma 2026 (PDF).</p></div>
-            </a>
-            <a href="Template/FORMAT_FULL_PAPER_SENIFORMA_2026.pdf" target="_blank" class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
-                <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="download-cloud" class="w-6 h-6 text-accent-blue"></i></div>
-                <div><h3 class="text-text-primary text-2xl font-bold mb-2">Template Full Paper</h3><p class="text-text-muted text-sm">Download template full paper resmi Seniforma 2026 (PDF).</p></div>
-            </a>
-            <a href="#panduan" class="group p-10 bg-accent-blue rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[250px]">
-                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="book-open" class="w-6 h-6 text-white"></i></div>
-                <div><h3 class="text-white text-2xl font-bold mb-2">Panduan Penulisan</h3><p class="text-white/80 text-sm">Baca aturan penulisan &amp; panduan submit via CMT.</p></div>
-            </a>
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- SECTION 6: TIMELINE -->
+    <!-- SECTION: Timeline -->
     <section id="timeline" class="py-24 bg-primary relative">
         <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-6" data-aos="fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Important Dates</span>
-            <h2 class="text-3xl font-bold text-text-primary tracking-tight">Timeline Seniforma 2026</h2>
-        </div>
-        <p class="text-center text-text-muted text-sm mb-16" data-aos="fade-up">Semua kegiatan mengacu pada Waktu Indonesia Barat (WIB).</p>
-        <div class="relative">
-            <div class="timeline-line"></div>
-            <div class="space-y-12">
-            <div class="relative flex flex-col md:flex-row items-center justify-between">
-                <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
-                <h4 class="font-semibold text-text-primary text-lg mb-1">Call for Paper</h4>
-                <p class="text-text-muted text-sm">Pengiriman abstrak &amp; full paper dibuka.</p>
-                </div>
-                <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
-                <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
-                <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">10 April – 10 Juni 2026</span>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Important Dates</span>
+                <h2 class="text-3xl font-bold text-text-primary tracking-tight">Timeline Seniforma 2026</h2>
+                <p class="text-text-muted mt-3 text-sm">Semua kegiatan mengacu pada Waktu Indonesia Barat (WIB).</p>
+            </div>
+
+            <div class="relative mt-16">
+                <div class="timeline-line"></div>
+
+                <div class="space-y-12">
+                    <!-- Item 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
+                            <h4 class="font-semibold text-text-primary text-lg mb-1">Call for Paper</h4>
+                            <p class="text-text-muted text-sm">Pengiriman abstrak</p>
+                        </div>
+                        <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
+                            <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">17 April – 10 Juni 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0" data-aos="fade-left">
+                            <h4 class="font-semibold text-accent-blue text-lg mb-1">Pendaftaran Attendee</h4>
+                            <p class="text-text-muted text-sm">Daftar sebagai peserta (tanpa paper).</p>
+                        </div>
+                        <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent-blue border-2 border-white z-10 ring-4 ring-blue-50"></div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1" data-aos="fade-right">
+                            <span class="inline-block px-3 py-1 bg-blue-50 text-accent-blue text-xs font-semibold rounded-md">1 Mei – 1 Juli 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
+                            <h4 class="font-semibold text-text-primary text-lg mb-1">Proses Review</h4>
+                            <p class="text-text-muted text-sm">Paper direview oleh reviewer.</p>
+                        </div>
+                        <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
+                            <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">17 April – 13 Juni 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0" data-aos="fade-left">
+                            <h4 class="font-semibold text-text-primary text-lg mb-1">Pengumuman &amp; Kumpul Paper</h4>
+                            <p class="text-text-muted text-sm">Hasil review diumumkan, penulis mengumpulkan paper final.</p>
+                        </div>
+                        <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1" data-aos="fade-right">
+                            <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">14 – 17 Juni 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
+                            <h4 class="font-semibold text-text-primary text-lg mb-1">Camera Ready</h4>
+                            <p class="text-text-muted text-sm">Pengumpulan versi final paper siap publikasi.</p>
+                        </div>
+                        <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
+                            <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">18 Juni – 2 Juli 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 6: Konferensi -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0" data-aos="fade-left">
+                            <h4 class="font-semibold text-accent-blue text-lg mb-1">🎉 Hari Konferensi</h4>
+                            <p class="text-text-muted text-sm">Pelaksanaan seminar, presentasi, dan pengumuman Best Paper & Best Presenter.</p>
+                        </div>
+                        <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent-blue border-2 border-white z-10 ring-4 ring-blue-50"></div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1" data-aos="fade-right">
+                            <span class="inline-block px-3 py-1 bg-blue-50 text-accent-blue text-xs font-semibold rounded-md">4 Juli 2026</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="relative flex flex-col md:flex-row items-center justify-between">
-                <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0" data-aos="fade-left">
-                <h4 class="font-semibold text-accent-blue text-lg mb-1">Pendaftaran Attendee</h4>
-                <p class="text-text-muted text-sm">Daftar sebagai peserta (tanpa paper).</p>
-                </div>
-                <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full timeline-dot-active border-2 border-white z-10"></div>
-                <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1" data-aos="fade-right">
-                <span class="inline-block px-3 py-1 bg-blue-50 text-accent-blue text-xs font-semibold rounded-md">1 Mei – 1 Juli 2026</span>
-                </div>
-            </div>
-            <div class="relative flex flex-col md:flex-row items-center justify-between">
-                <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
-                <h4 class="font-semibold text-text-primary text-lg mb-1">Proses Review</h4>
-                <p class="text-text-muted text-sm">Paper direview oleh reviewer.</p>
-                </div>
-                <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
-                <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
-                <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">10 April – 13 Juni 2026</span>
-                </div>
-            </div>
-            <div class="relative flex flex-col md:flex-row items-center justify-between">
-                <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0" data-aos="fade-left">
-                <h4 class="font-semibold text-text-primary text-lg mb-1">Pengumuman &amp; Kumpul Paper</h4>
-                <p class="text-text-muted text-sm">Hasil review diumumkan, penulis mengumpulkan paper final.</p>
-                </div>
-                <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
-                <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1" data-aos="fade-right">
-                <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">14 – 17 Juni 2026</span>
-                </div>
-            </div>
-            <div class="relative flex flex-col md:flex-row items-center justify-between">
-                <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0" data-aos="fade-right">
-                <h4 class="font-semibold text-text-primary text-lg mb-1">Camera Ready</h4>
-                <p class="text-text-muted text-sm">Pengumpulan versi final paper siap publikasi.</p>
-                </div>
-                <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-border-color border-2 border-white z-10"></div>
-                <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-left mt-2 md:mt-0" data-aos="fade-left">
-                <span class="inline-block px-3 py-1 bg-gray-100 text-text-muted text-xs font-semibold rounded-md">18 Juni – 2 Juli 2026</span>
-                </div>
-            </div>
-            <div class="relative flex flex-col md:flex-row items-center justify-between">
-                <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0 order-1 md:order-2 mt-2 md:mt-0" data-aos="fade-left">
-                <h4 class="font-bold text-accent-blue text-xl mb-1">🎉 Hari Konferensi</h4>
-                <p class="text-text-muted text-sm">Pelaksanaan seminar, presentasi, dan pengumuman Best Paper.</p>
-                </div>
-                <div class="absolute left-[24px] md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full timeline-dot-active border-2 border-white z-10 ring-4 ring-blue-100"></div>
-                <div class="w-full md:w-1/2 md:pl-12 pl-12 md:text-right order-2 md:order-1" data-aos="fade-right">
-                <span class="inline-block px-4 py-2 bg-accent-blue text-white text-sm font-bold rounded-md shadow">4 Juli 2026</span>
-                </div>
-            </div>
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- SECTION 7: ATTENDEE -->
-    <section id="attendee" class="py-24 bg-secondary grid-wrapper relative">
-        <div class="grid-background opacity-30"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Ikut Serta</span>
-            <h2 class="text-3xl md:text-4xl font-bold text-text-primary tracking-tight">Daftar sebagai Attendee</h2>
-            <p class="text-text-muted mt-4 max-w-xl mx-auto text-sm leading-relaxed">Tidak memiliki paper? Kamu tetap bisa hadir dan menikmati seluruh sesi Seniforma 2026 sebagai <strong>Attendee</strong>!</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div class="clean-card p-8 text-center" data-aos="fade-up" data-aos-delay="0">
-            <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5"><i data-lucide="badge-check" class="w-7 h-7 text-accent-blue"></i></div>
-            <h4 class="font-bold text-text-primary mb-2">Sertifikat Kehadiran</h4>
-            <p class="text-sm text-text-muted">Dapatkan e-sertifikat resmi sebagai peserta Seniforma 2026.</p>
-            </div>
-            <div class="clean-card p-8 text-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5"><i data-lucide="presentation" class="w-7 h-7 text-accent-blue"></i></div>
-            <h4 class="font-bold text-text-primary mb-2">Akses Semua Sesi</h4>
-            <p class="text-sm text-text-muted">Ikuti seluruh sesi keynote dan presentasi paper paralel.</p>
-            </div>
-            <div class="clean-card p-8 text-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5"><i data-lucide="network" class="w-7 h-7 text-accent-blue"></i></div>
-            <h4 class="font-bold text-text-primary mb-2">Networking</h4>
-            <p class="text-sm text-text-muted">Bangun koneksi dengan peneliti dan akademisi dari seluruh Indonesia.</p>
-            </div>
-        </div>
-        <div class="text-center mt-12" data-aos="fade-up">
-            <p class="text-sm text-text-muted mb-2">Periode Pendaftaran Attendee</p>
-            <p class="text-lg font-bold text-accent-blue mb-6">1 Mei – 1 Juli 2026</p>
-            <a href="#" class="inline-flex items-center gap-2 btn-primary bg-accent-blue hover:bg-blue-700 text-white px-10 py-4 text-base">
-            <i data-lucide="user-plus" class="w-5 h-5"></i> Daftar Attendee Sekarang
-            </a>
-        </div>
-        </div>
-    </section>
-
-    <!-- SECTION 8: HARGA -->
+    <!-- SECTION: Biaya Registrasi -->
     <section id="harga" class="py-24 bg-accent-blue text-white">
         <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl font-bold text-white tracking-tight mb-4">Investasi Keikutsertaan</h2>
-            <p class="text-white/80 max-w-xl mx-auto">Biaya registrasi akan diumumkan segera. Pantau terus website ini dan media sosial resmi kami.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            <div class="clean-card bg-white/10 backdrop-blur-md border-white/20 p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="0">
-            <h3 class="font-semibold text-lg text-white mb-1">Peserta Mahasiswa</h3>
-            <p class="text-sm text-white/60 mb-6">Wajib melampirkan KTM aktif.</p>
-            <div class="mb-6"><span class="text-4xl font-bold text-white">TBA</span><p class="text-white/50 text-xs mt-1">Segera diumumkan</p></div>
-            <ul class="space-y-4 mb-8 flex-grow">
-                <li class="flex items-start gap-3 text-sm text-white/80"><i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> Akses semua sesi utama</li>
-                <li class="flex items-start gap-3 text-sm text-white/80"><i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> E-Sertifikat Kehadiran</li>
-            </ul>
-            <a href="#" class="btn-outline border-white/30 bg-white/10 text-white hover:bg-white hover:text-accent-blue w-full py-3 text-center block mt-auto text-sm">Daftar Sekarang</a>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-white tracking-tight mb-4">Investasi Keikutsertaan</h2>
+                <p class="text-white/80 max-w-xl mx-auto">Biaya registrasi akan diumumkan segera. Pantau terus website ini dan media sosial resmi kami.</p>
             </div>
-            <div class="clean-card bg-white p-8 flex flex-col h-full relative border-white shadow-2xl -translate-y-2" data-aos="fade-up" data-aos-delay="100">
-            <div class="absolute top-0 right-8 -translate-y-1/2 bg-yellow-400 text-accent-blue text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full">Populer</div>
-            <h3 class="font-semibold text-lg text-accent-blue mb-1">Pemakalah</h3>
-            <p class="text-sm text-text-muted mb-6">Untuk peneliti yang submit paper.</p>
-            <div class="mb-6"><span class="text-4xl font-bold text-accent-blue">TBA</span><p class="text-text-muted text-xs mt-1">Segera diumumkan</p></div>
-            <ul class="space-y-4 mb-8 flex-grow">
-                <li class="flex items-start gap-3 text-sm text-text-primary font-medium"><i data-lucide="check" class="w-5 h-5 text-accent-blue shrink-0"></i> Presentasi Paper Paralel</li>
-                <li class="flex items-start gap-3 text-sm text-text-primary font-medium"><i data-lucide="check" class="w-5 h-5 text-accent-blue shrink-0"></i> Publikasi eBook Seniforma 2026</li>
-                <li class="flex items-start gap-3 text-sm text-text-muted"><i data-lucide="check" class="w-5 h-5 text-accent-blue shrink-0"></i> Sertifikat Pemakalah</li>
-            </ul>
-            <a href="#panduan" class="btn-primary w-full py-3 text-center block mt-auto text-sm bg-accent-blue hover:bg-blue-800 text-white border-0">Submit Paper</a>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-4xl mx-auto">
+                <!-- Mahasiswa UNRAM -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute top-0 right-8 -translate-y-1/2 bg-yellow-400 text-accent-blue text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full">Pemakalah</div>
+                    <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="graduation-cap" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Mahasiswa UNRAM</h3>
+                    <p class="text-sm text-white/60 mb-5">Wajib melampirkan KTM aktif.</p>
+                    <div class="py-4 border-t border-b border-white/20 mb-5">
+                        <span class="text-4xl font-black text-white">FREE</span>
+                        <p class="text-white/60 text-xs mt-1">Gratis untuk mahasiswa aktif</p>
+                    </div>
+                    <ul class="text-sm text-white/80 space-y-2 text-left">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> Akses semua sesi utama</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> E-Sertifikat Participant</li>
+                    </ul>
+                </div>
+                
+
+                <!-- Umum -->
+                <div class="bg-white rounded-3xl p-8 text-center shadow-2xl -translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-8 -translate-y-1/2 bg-yellow-400 text-accent-blue text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full">Pemakalah</div>
+                    <div class="w-14 h-14 bg-accent-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="file-text" class="w-7 h-7 text-accent-blue"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-accent-blue mb-2">Peserta Umum</h3>
+                    <p class="text-sm text-text-muted mb-5">Mahasiswa, Akademisi umum &amp; praktisi.</p>
+                    <div class="py-4 border-t border-b border-border-color mb-5">
+                        <span class="text-4xl font-black text-accent-blue">Rp 50k</span>
+                        <p class="text-text-muted text-xs mt-1">Permakalah</p>
+                    </div>
+                    <ul class="text-sm text-text-primary space-y-2 text-left">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-blue shrink-0"></i> Akses semua sesi utama</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-blue shrink-0"></i> E-Sertifikat Participant</li>
+                    </ul>
+                </div>
+
+                <!-- Attendee -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="users" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Attendee</h3>
+                    <p class="text-sm text-white/60 mb-5">Peserta tanpa paper.</p>
+                    <div class="py-4 border-t border-b border-white/20 mb-5">
+                        <span class="text-4xl font-black text-white">FREE</span>
+                        <p class="text-white/60 text-xs mt-1">Gratis untuk semua</p>
+                    </div>
+                    <ul class="text-sm text-white/80 space-y-2 text-left">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> Akses semua sesi utama</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> E-Sertifikat Participant</li>
+                    </ul>
+                </div>
             </div>
-            <div class="clean-card bg-white/10 backdrop-blur-md border-white/20 p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="font-semibold text-lg text-white mb-1">Peserta Umum</h3>
-            <p class="text-sm text-white/60 mb-6">Akademisi / praktisi / umum.</p>
-            <div class="mb-6"><span class="text-4xl font-bold text-white">TBA</span><p class="text-white/50 text-xs mt-1">Segera diumumkan</p></div>
-            <ul class="space-y-4 mb-8 flex-grow">
-                <li class="flex items-start gap-3 text-sm text-white/80"><i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> Akses semua sesi utama</li>
-                <li class="flex items-start gap-3 text-sm text-white/80"><i data-lucide="check" class="w-5 h-5 text-white/40 shrink-0"></i> E-Sertifikat Kehadiran</li>
-            </ul>
-            <a href="#" class="btn-outline border-white/30 bg-white/10 text-white hover:bg-white hover:text-accent-blue w-full py-3 text-center block mt-auto text-sm">Daftar Sekarang</a>
-            </div>
-        </div>
-        <p class="text-center text-white/50 text-xs mt-10">* Biaya akan diumumkan melalui website dan media sosial resmi HMIF FT-UNRAM</p>
+
+            <p class="text-center text-white/60 text-sm mt-10" data-aos="fade-up">* Detail biaya dan tata cara pembayaran akan diinformasikan melalui website dan media sosial resmi.</p>
         </div>
     </section>
 
-    <div class="w-full h-12 bg-accent-blue shadow-lg relative z-20"></div>
+    <!-- SECTION: Daftar Attendee -->
+    <section id="attendee" class="py-24 bg-secondary border-t border-border-color">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Ikut Serta</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-primary tracking-tight mb-4">Daftar sebagai Attendee</h2>
+                <p class="text-text-muted max-w-xl mx-auto leading-relaxed">Tidak memiliki paper? Kamu tetap bisa hadir dan menikmati seluruh sesi Seniforma 2026 sebagai Attendee!</p>
+            </div>
 
-    <!-- SECTION 9: PANDUAN -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="clean-card p-8 text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="award" class="w-7 h-7 text-accent-blue"></i>
+                    </div>
+                    <h4 class="font-bold text-text-primary mb-2">Sertifikat Kehadiran</h4>
+                    <p class="text-sm text-text-muted">Dapatkan e-sertifikat resmi sebagai peserta Seniforma 2026.</p>
+                </div>
+                <div class="clean-card p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="monitor-play" class="w-7 h-7 text-accent-blue"></i>
+                    </div>
+                    <h4 class="font-bold text-text-primary mb-2">Akses Semua Sesi</h4>
+                    <p class="text-sm text-text-muted">Ikuti seluruh sesi keynote dan presentasi paper paralel.</p>
+                </div>
+                <div class="clean-card p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="handshake" class="w-7 h-7 text-accent-blue"></i>
+                    </div>
+                    <h4 class="font-bold text-text-primary mb-2">Networking</h4>
+                    <p class="text-sm text-text-muted">Bangun koneksi dengan peneliti dan akademisi dari seluruh Indonesia.</p>
+                </div>
+            </div>
+
+            <div class="clean-card p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8" data-aos="fade-up">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-2">Periode Pendaftaran Attendee</p>
+                    <h3 class="text-2xl font-bold text-text-primary">1 Mei – 1 Juli 2026</h3>
+                    <p class="text-text-muted text-sm mt-1">Gratis untuk semua kalangan. Daftar sekarang sebelum penuh!</p>
+                </div>
+                <a href="#" class="btn-primary bg-accent-blue hover:bg-blue-600 border-none text-white px-8 py-4 text-sm font-semibold whitespace-nowrap shadow-lg">
+                    Daftar Attendee Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Panduan / Information for Authors -->
     <section id="panduan" class="py-32 bg-primary border-t border-border-color relative overflow-hidden">
         <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-50/50 blur-[120px] rounded-full pointer-events-none"></div>
+
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-20">
-            <div data-aos="fade-right">
-            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-5 block underline decoration-accent-blue/30 underline-offset-8">Information for Authors</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">Panduan Umum Pengumpulan Paper</h2>
-            <p class="text-text-muted leading-relaxed mb-10 text-lg">Semua paper dikirimkan melalui portal <span class="font-bold text-text-primary">CMT (Conference Management Toolkit)</span>. Pastikan naskah Anda memenuhi seluruh ketentuan sebelum disubmit.</p>
-            <div class="space-y-4 mb-10">
-                <div class="flex items-start gap-4 p-5 bg-secondary rounded-2xl border border-border-color">
-                <div class="w-8 h-8 bg-accent-blue text-white rounded-xl flex items-center justify-center font-bold text-sm shrink-0">1</div>
-                <div><h5 class="font-bold text-text-primary mb-1">Orisinalitas Paper</h5><p class="text-sm text-text-muted">Paper yang dikirim adalah hasil karya asli pengarang dan bebas dari unsur plagiarisme.</p></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-24">
+                <div data-aos="fade-right">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-5 block underline decoration-accent-blue/30 underline-offset-8">Information for Authors</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">Panduan Umum Pengumpulan Paper</h2>
+                    <p class="text-text-muted leading-relaxed mb-10 text-lg">
+                        Semua paper dikirimkan melalui portal <span class="font-bold text-text-primary">CMT (Conference Management Toolkit)</span>. Pastikan naskah Anda memenuhi seluruh ketentuan sebelum disubmit.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-5 p-6 bg-secondary rounded-2xl border border-border-color">
+                            <div class="w-10 h-10 bg-accent-blue/10 rounded-xl flex items-center justify-center shrink-0 font-bold text-accent-blue text-lg">1</div>
+                            <div>
+                                <h4 class="font-bold text-text-primary mb-1">Orisinalitas Paper</h4>
+                                <p class="text-sm text-text-muted">Paper yang dikirim adalah hasil karya asli pengarang dan bebas dari unsur plagiarisme.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-5 p-6 bg-secondary rounded-2xl border border-border-color">
+                            <div class="w-10 h-10 bg-accent-blue/10 rounded-xl flex items-center justify-center shrink-0 font-bold text-accent-blue text-lg">2</div>
+                            <div>
+                                <h4 class="font-bold text-text-primary mb-1">Status Publikasi</h4>
+                                <p class="text-sm text-text-muted">Paper yang dikirim belum pernah diterima, dipresentasikan dalam seminar, maupun dipublikasikan dalam jurnal apa pun.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-5 p-6 bg-secondary rounded-2xl border border-border-color">
+                            <div class="w-10 h-10 bg-accent-blue/10 rounded-xl flex items-center justify-center shrink-0 font-bold text-accent-blue text-lg">3</div>
+                            <div>
+                                <h4 class="font-bold text-text-primary mb-1">Format Penulisan</h4>
+                                <p class="text-sm text-text-muted">Naskah disusun menggunakan template resmi Seniforma 2026 yang tersedia (format PDF).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-5 p-6 bg-secondary rounded-2xl border border-border-color">
+                            <div class="w-10 h-10 bg-accent-blue/10 rounded-xl flex items-center justify-center shrink-0 font-bold text-accent-blue text-lg">4</div>
+                            <div>
+                                <h4 class="font-bold text-text-primary mb-1">Ketentuan dan Diskualifikasi</h4>
+                                <p class="text-sm text-text-muted">Peserta yang tidak memenuhi panduan umum yang telah ditetapkan akan didiskualifikasi dari proses seleksi.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-start gap-4 p-5 bg-secondary rounded-2xl border border-border-color">
-                <div class="w-8 h-8 bg-accent-blue text-white rounded-xl flex items-center justify-center font-bold text-sm shrink-0">2</div>
-                <div><h5 class="font-bold text-text-primary mb-1">Status Publikasi</h5><p class="text-sm text-text-muted">Paper yang dikirim belum pernah diterima, dipresentasikan dalam seminar, maupun dipublikasikan dalam jurnal apa pun.</p></div>
+
+                <div data-aos="fade-left">
+                    <!-- Download Templates -->
+                    <div class="mb-10">
+                        <h3 class="text-lg font-bold text-text-primary mb-5 flex items-center gap-2">
+                            <i data-lucide="download" class="w-5 h-5 text-accent-blue"></i>
+                            Download Template
+                        </h3>
+                        <div class="space-y-4">
+                            <a href="Template/FORMAT_ABSTRAK_SENIFORMA_2026.pdf" target="_blank" class="flex items-center justify-between p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue hover:bg-blue-50/30 transition-all group">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center shrink-0">
+                                        <i data-lucide="file-text" class="w-5 h-5 text-red-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-text-primary text-sm">Template Abstrak</h4>
+                                        <p class="text-xs text-text-muted">FORMAT_ABSTRAK_SENIFORMA_2026.pdf</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="download-cloud" class="w-5 h-5 text-accent-blue group-hover:scale-110 transition-transform"></i>
+                            </a>
+                            <a href="Template/FORMAT_FULL_PAPER_SENIFORMA_2026.pdf" target="_blank" class="flex items-center justify-between p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue hover:bg-blue-50/30 transition-all group">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center shrink-0">
+                                        <i data-lucide="file-text" class="w-5 h-5 text-red-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-text-primary text-sm">Template Full Paper</h4>
+                                        <p class="text-xs text-text-muted">FORMAT_FULL_PAPER_SENIFORMA_2026.pdf</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="download-cloud" class="w-5 h-5 text-accent-blue group-hover:scale-110 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Info boxes -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="p-6 bg-secondary rounded-[2rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="layout" class="w-6 h-6 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-base text-text-primary mb-2">Format 1 Kolom</h4>
+                            <p class="text-xs text-text-muted leading-relaxed">Naskah disusun dalam format Single-Column menggunakan template resmi Seniforma 2026.</p>
+                        </div>
+                        <div class="p-6 bg-secondary rounded-[2rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="search" class="w-6 h-6 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-base text-text-primary mb-2">Proses Review</h4>
+                            <p class="text-xs text-text-muted leading-relaxed">Setiap naskah akan melalui proses review yang ketat oleh reviewer yang ditunjuk panitia.</p>
+                        </div>
+                        <div class="p-6 bg-secondary rounded-[2rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="send" class="w-6 h-6 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-base text-text-primary mb-2">Submit via CMT</h4>
+                            <p class="text-xs text-text-muted leading-relaxed">Gunakan Conference Management Toolkit (CMT) untuk seluruh proses pengiriman dan revisi naskah.</p>
+                        </div>
+                        <div class="p-6 bg-secondary rounded-[2rem] border border-border-color hover:border-accent-blue/30 transition-all group">
+                            <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="calendar-check" class="w-6 h-6 text-accent-blue"></i>
+                            </div>
+                            <h4 class="font-bold text-base text-text-primary mb-2">Batas Akhir</h4>
+                            <p class="text-xs text-text-muted leading-relaxed">Pastikan submit sebelum tenggat: <span class="font-bold text-accent-blue">10 Juni 2026</span>. Pengiriman setelah deadline tidak akan diproses.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-start gap-4 p-5 bg-secondary rounded-2xl border border-border-color">
-                <div class="w-8 h-8 bg-accent-blue text-white rounded-xl flex items-center justify-center font-bold text-sm shrink-0">3</div>
-                <div><h5 class="font-bold text-text-primary mb-1">Format Penulisan</h5><p class="text-sm text-text-muted">Naskah disusun menggunakan template resmi Seniforma 2026 yang tersedia (format PDF).</p></div>
-                </div>
-                <div class="flex items-start gap-4 p-5 bg-secondary rounded-2xl border border-border-color">
-                <div class="w-8 h-8 bg-accent-blue text-white rounded-xl flex items-center justify-center font-bold text-sm shrink-0">4</div>
-                <div><h5 class="font-bold text-text-primary mb-1">Ketentuan dan Diskualifikasi</h5><p class="text-sm text-text-muted">Peserta yang tidak memenuhi panduan umum yang telah ditetapkan akan didiskualifikasi dari proses seleksi.</p></div>
-                </div>
-            </div>
-            <div class="flex flex-wrap gap-5">
-                <a href="Template/FORMAT_ABSTRAK_SENIFORMA_2026.pdf" target="_blank" class="btn-primary px-10 py-4 flex items-center gap-3 bg-accent-blue hover:bg-blue-600 border-none shadow-lg">
-                <i data-lucide="file-text" class="w-5 h-5 text-white"></i> Template Abstrak
-                </a>
-                <a href="Template/FORMAT_FULL_PAPER_SENIFORMA_2026.pdf" target="_blank" class="btn-outline px-10 py-4 flex items-center gap-2 group hover:border-accent-blue hover:text-accent-blue">
-                Template Full Paper <i data-lucide="download" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
-                </a>
-            </div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
-            <div class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors"><i data-lucide="layout" class="w-7 h-7 text-accent-blue"></i></div>
-                <h4 class="font-bold text-lg text-text-primary mb-2">Format 1 Kolom</h4>
-                <p class="text-sm text-text-muted leading-relaxed">Naskah disusun dalam format Single-Column menggunakan template resmi Seniforma 2026.</p>
-            </div>
-            <div class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors"><i data-lucide="search" class="w-7 h-7 text-accent-blue"></i></div>
-                <h4 class="font-bold text-lg text-text-primary mb-2">Proses Review</h4>
-                <p class="text-sm text-text-muted leading-relaxed">Setiap naskah akan melalui proses review yang ketat oleh reviewer yang ditunjuk panitia.</p>
-            </div>
-            <div class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors"><i data-lucide="send" class="w-7 h-7 text-accent-blue"></i></div>
-                <h4 class="font-bold text-lg text-text-primary mb-2">Submit via CMT</h4>
-                <p class="text-sm text-text-muted leading-relaxed">Gunakan Conference Management Toolkit (CMT) untuk seluruh proses pengiriman dan revisi naskah.</p>
-            </div>
-            <div class="p-8 bg-secondary rounded-[2.5rem] border border-border-color hover:border-accent-blue/30 transition-all group">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-border-color group-hover:bg-blue-50 transition-colors"><i data-lucide="calendar-check" class="w-7 h-7 text-accent-blue"></i></div>
-                <h4 class="font-bold text-lg text-text-primary mb-2">Batas Akhir</h4>
-                <p class="text-sm text-text-muted leading-relaxed">Pastikan submit sebelum tenggat: <strong>10 Juni 2026</strong>. Pengiriman setelah deadline tidak akan diproses.</p>
-            </div>
             </div>
         </div>
-        </div>
+
+        <!-- Hosted by UNRAM Banner -->
         <div class="w-full bg-accent-blue py-10 my-16 shadow-inner relative overflow-hidden group">
-        <div class="absolute inset-y-0 left-0 w-2 bg-yellow-400"></div>
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10">
-            <div class="bg-white p-4 rounded-2xl shadow-xl transition-transform group-hover:scale-105 duration-500">
-            <img src="img/LOGO_UNRAM.webp" alt="UNRAM Logo" class="h-24 w-24 object-contain" />
-            </div>
-            <div class="text-center md:text-left">
-            <h3 class="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-2">Hosted by Universitas Mataram</h3>
-            <p class="text-white/70 font-semibold tracking-widest uppercase text-xs">HMIF &amp; PSTI Fakultas Teknik — Seniforma 2026</p>
+            <div class="absolute inset-y-0 left-0 w-2 bg-yellow-400"></div>
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10">
+                <div class="bg-white p-4 rounded-2xl shadow-xl transition-transform group-hover:scale-105 duration-500">
+                    <img src="img/LOGO_UNRAM.webp" alt="UNRAM Logo" class="h-24 w-24 object-contain">
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-2">Hosted by Universitas Mataram</h3>
+                    <p class="text-white/70 font-semibold tracking-widest uppercase text-xs">HMIF &amp; PSTI Fakultas Teknik — Seniforma 2026</p>
+                </div>
             </div>
         </div>
-        </div>
+
+        <!-- Organizer & Partners -->
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="border-t border-border-color pt-24 mb-20">
-            <div class="text-center mb-16" data-aos="fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Organizer &amp; Partners</span>
-            <h2 class="text-2xl md:text-4xl font-bold text-text-primary tracking-tight">Our Organization</h2>
-            </div>
-            <div class="flex flex-col md:flex-row justify-center gap-16 text-center max-w-3xl mx-auto">
-            <div data-aos="fade-up" data-aos-delay="0">
-                <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Official Organizer</h4>
-                <div class="flex justify-center gap-10 items-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all">
-                <img src="img/LOGO_HMIF.webp" alt="HMIF" class="h-14 object-contain" />
+            <div class="border-t border-border-color pt-24 mb-20">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Organizer &amp; Partners</span>
+                    <h2 class="text-2xl md:text-4xl font-bold text-text-primary tracking-tight">Our Organization</h2>
                 </div>
-                <p class="text-xs text-text-muted mt-4 font-semibold">HMIF FT — Universitas Mataram</p>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="100">
-                <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Mitra Penyelenggara</h4>
-                <div class="flex justify-center gap-10 items-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all">
-                <img src="img/LOGO_UNRAM.webp" alt="UNRAM" class="h-10 object-contain" />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-4xl mx-auto">
+                    <div data-aos="fade-up" data-aos-delay="0">
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Official Organizer</h4>
+                        <div class="flex justify-center gap-10 items-center">
+                            <div class="flex flex-col items-center gap-3 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all">
+                                <img src="img/LOGO_HMIF.webp" alt="HMIF" class="h-14 object-contain">
+                                <span class="text-xs font-bold text-text-muted">HMIF FT — Universitas Mataram</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Mitra Penyelenggara</h4>
+                        <div class="flex justify-center gap-10 items-center">
+                            <div class="flex flex-col items-center gap-3 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all">
+                                <img src="img/LOGO_PSTI.webp" alt="PSTI" class="h-14 object-contain">
+                                <span class="text-xs font-bold text-text-muted">PSTI FT — Universitas Mataram</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-xs text-text-muted mt-4 font-semibold">PSTI FT — Universitas Mataram</p>
             </div>
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- SECTION 10: SPONSORS -->
+    <!-- SECTION: Sponsors -->
     <section class="py-24 bg-secondary overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 text-center mb-12" data-aos="fade-up">
-        <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Support System</span>
-        <h2 class="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">Our Sponsors &amp; Partners</h2>
-        <p class="text-text-muted text-sm mt-3">Logo sponsor akan diperbarui setelah konfirmasi resmi.</p>
+            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-3 block">Support System</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">Our Sponsors &amp; Partners</h2>
+            <p class="text-text-muted text-sm mt-3">Logo sponsor akan diperbarui setelah konfirmasi resmi.</p>
         </div>
-        <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-        <div class="flex items-center justify-start animate-marquee whitespace-nowrap py-10">
-            <ul class="flex items-center justify-start [&_li]:mx-12 [&_img]:max-w-none opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.webp"   alt="Google"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.webp"               alt="Amazon"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.webp"         alt="Microsoft" class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.webp"                     alt="IBM"       class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.webp" alt="Cisco" class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.webp"   alt="Google"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.webp"               alt="Amazon"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.webp"         alt="Microsoft" class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.webp"                     alt="IBM"       class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.webp" alt="Cisco" class="h-10 object-contain" /></li>
-            </ul>
-            <ul class="flex items-center justify-start [&_li]:mx-12 [&_img]:max-w-none opacity-40 grayscale hover:grayscale-0 transition-all duration-500" aria-hidden="true">
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.webp"   alt="Google"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.webp"               alt="Amazon"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.webp"         alt="Microsoft" class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.webp"                     alt="IBM"       class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.webp" alt="Cisco" class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.webp"   alt="Google"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.webp"               alt="Amazon"    class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.webp"         alt="Microsoft" class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.webp"                     alt="IBM"       class="h-10 object-contain" /></li>
-            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/200px-Cisco_logo_blue_2016.svg.webp" alt="Cisco" class="h-10 object-contain" /></li>
-            </ul>
-        </div>
+
+        <div class="flex justify-center items-center gap-6 flex-wrap px-6 opacity-40">
+            <div class="px-8 py-4 bg-white rounded-2xl text-sm font-black tracking-tighter border border-border-color text-text-muted">Sponsor A</div>
+            <div class="px-8 py-4 bg-white rounded-2xl text-sm font-black tracking-tighter border border-border-color text-text-muted">Sponsor B</div>
+            <div class="px-8 py-4 bg-white rounded-2xl text-sm font-black tracking-tighter border border-border-color text-text-muted">Sponsor C</div>
+            <div class="px-8 py-4 bg-white rounded-2xl text-sm font-black tracking-tighter border border-border-color text-text-muted">Sponsor D</div>
         </div>
     </section>
 
-    <!-- SECTION 11: VENUE -->
+    <!-- SECTION: Venue -->
     <section id="venue" class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-        <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block underline decoration-accent-blue/20 underline-offset-8">VENUE</span>
-        <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-4">Ruang Prof. Morisco</h2>
-        <p class="text-text-muted text-sm md:text-base max-w-3xl mx-auto mb-4 leading-relaxed">Jl. Majapahit No.62, Gomong, Kec. Selaparang, Mataram, Nusa Tenggara Barat 83115</p>
-        <p class="text-text-muted text-xs mb-4">Sesi paralel akan dilaksanakan di <strong>Ruang A301</strong> dan <strong>Ruang A302</strong> — Gedung Teknik, Universitas Mataram.</p>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-accent-blue text-xs font-semibold mb-16">
-            <i data-lucide="wifi" class="w-3 h-3"></i>
-            Format Hybrid — Hadir Langsung &amp; Online
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="0">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-_4hxYspfL0Oa2byI8UhW9C-VLJ1U3M8lhQ&s" alt="Venue FT-UNRAM" class="w-full h-full object-cover transition-all duration-700" />
+            <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block underline decoration-accent-blue/20 underline-offset-8">VENUE</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-4">Ruang Prof. Morisco</h2>
+            <p class="text-text-muted text-sm md:text-base max-w-3xl mx-auto mb-4 leading-relaxed">
+                Jl. Majapahit No.62, Gomong, Kec. Selaparang, Mataram, Nusa Tenggara Barat 83115
+            </p>
+            <p class="text-text-muted text-sm max-w-2xl mx-auto mb-4">
+                Sesi paralel akan dilaksanakan di Ruang A301 dan Ruang A302 — Gedung Teknik, Universitas Mataram.
+            </p>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-accent-blue text-xs font-bold mb-16">
+                <i data-lucide="monitor-smartphone" class="w-4 h-4"></i>
+                Format Hybrid — Hadir Langsung &amp; Online
             </div>
-            <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://unram.ac.id/wp-content/uploads/2025/01/PERESMIAN-DAN-KUNJUNGAN.jpg" alt="Gedung UNRAM" class="w-full h-full object-cover transition-all duration-700" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="0">
+                    <img src="img/Morisco1.png" alt="Ruang Prof Morisco1" class="w-full h-full object-cover transition-all duration-700">
+                </div>
+                <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500 bg-blue-50 flex items-center justify-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/Morisco2.webp" alt="Ruang Prof Morisco2" class="w-full h-full object-cover transition-all duration-700">
+                </div>
+                <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500 bg-blue-50 flex items-center justify-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/Morisco3.webp" alt="Ruang Prof Morisco3" class="w-full h-full object-cover transition-all duration-700">
+                </div>
+                <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500 bg-blue-50 flex items-center justify-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/Morisco4.jpeg" alt="Ruang Prof Morisco4" class="w-full h-full object-cover transition-all duration-700">
+                </div>
             </div>
-            <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500 bg-gray-100" data-aos="fade-up" data-aos-delay="200">
-            </div>
-            <div class="group relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-md hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
-            <img src="https://unram.ac.id/wp-content/uploads/2025/01/PERESMIAN-DAN-KUNJUNGAN.jpg" alt="Gedung UNRAM" class="w-full h-full object-cover transition-all duration-700" />
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-secondary border-t border-border-color py-12">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="md:col-span-2 space-y-4">
-            <a href="#" class="flex items-center gap-3 group">
-            <img src="img/LOGO_HMIF.webp" alt="HMIF Logo" class="w-10 h-10 object-contain" />
-            <div class="flex flex-col">
-                <span class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Seniforma 2026</span>
-                <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF FT-UNRAM</span>
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="md:col-span-2 space-y-5">
+                <a href="#" class="flex items-center gap-3 group">
+                    <img src="img/LOGO_HMIF.webp" alt="HMIF Logo" class="w-10 h-10 object-contain">
+                    <div class="flex flex-col">
+                        <span class="font-inter font-bold text-lg leading-none tracking-tight text-white">Seniforma</span>
+                        <span class="text-[10px] font-bold text-blue-400 tracking-widest uppercase">HMIF 2026</span>
+                    </div>
+                </a>
+                <p class="text-sm text-white/60 max-w-sm leading-relaxed">
+                    Seminar Nasional Informatika Universitas Mataram 2026 — diselenggarakan oleh Himpunan Mahasiswa Informatika Fakultas Teknik Universitas Mataram.
+                </p>
+                <div class="flex gap-4 pt-2">
+                    <a href="#" class="text-white/40 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-white/40 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-white/40 hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                </div>
             </div>
-            </a>
-            <p class="text-sm text-text-muted max-w-sm leading-relaxed">Seminar Nasional Informatika Universitas Mataram 2026 — diselenggarakan oleh Himpunan Mahasiswa Informatika Fakultas Teknik Universitas Mataram.</p>
-            <div class="flex gap-4 pt-2">
-            <a href="#" class="text-gray-400 hover:text-text-primary transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-            <a href="#" class="text-gray-400 hover:text-text-primary transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-            <a href="#" class="text-gray-400 hover:text-text-primary transition-colors" aria-label="Email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+
+            <div>
+                <h4 class="font-semibold text-white mb-5 text-sm">Informasi</h4>
+                <ul class="space-y-3 text-sm text-white/60">
+                    <li><a href="#topik" class="hover:text-white transition-colors">Topik Paper</a></li>
+                    <li><a href="#timeline" class="hover:text-white transition-colors">Timeline</a></li>
+                    <li><a href="#harga" class="hover:text-white transition-colors">Biaya Registrasi</a></li>
+                    <li><a href="#panduan" class="hover:text-white transition-colors">Panduan Submit</a></li>
+                    <li><a href="#attendee" class="hover:text-white transition-colors">Daftar Attendee</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-white mb-5 text-sm">Kontak</h4>
+                <ul class="space-y-3 text-sm text-white/60">
+                    <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 shrink-0 mt-0.5 text-blue-400"></i>Ruang Prof. Morisco, FT-UNRAM</li>
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0 text-blue-400"></i>082 293 100 170</li>
+                    <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 shrink-0 text-blue-400"></i>[email resmi Seniforma 2026]</li>
+                </ul>
             </div>
         </div>
-        <div>
-            <h4 class="font-semibold text-text-primary mb-4 text-sm">Informasi</h4>
-            <ul class="space-y-3 text-sm text-text-muted">
-            <li><a href="#topik"    class="hover:text-accent-blue transition-colors">Topik Paper</a></li>
-            <li><a href="#timeline" class="hover:text-accent-blue transition-colors">Timeline</a></li>
-            <li><a href="#harga"    class="hover:text-accent-blue transition-colors">Biaya Registrasi</a></li>
-            <li><a href="#panduan"  class="hover:text-accent-blue transition-colors">Panduan Submit</a></li>
-            <li><a href="#attendee" class="hover:text-accent-blue transition-colors">Daftar Attendee</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-semibold text-text-primary mb-4 text-sm">Kontak</h4>
-            <ul class="space-y-3 text-sm text-text-muted">
-            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i> Ruang Prof. Morisco, FT-UNRAM</li>
-            <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0"></i> 085 738 979 920</li>
-            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 shrink-0"></i> [email resmi Seniforma 2026]</li>
-            </ul>
-        </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-border-color flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-        <p>&copy; 2026 Seniforma 2026 — HMIF FT-UNRAM. All rights reserved.</p>
-        <p>Seminar Nasional Informatika Universitas Mataram | Universitas Mataram</p>
+
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
+            <p>&copy; 2026 Seniforma 2026 — HMIF FT-UNRAM. All rights reserved.</p>
+            <p>Seminar Nasional Informatika Universitas Mataram | Universitas Mataram</p>
         </div>
     </footer>
 
-    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
     <script>
-const SPEAKER_DATA = [
-    { category: "Keynote Speaker #1", title: "Cahya Damarjati, S.T., M. Eng., Ph.D.", content: `<div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6"><p class="text-base md:text-lg text-gray-500">Detail profil, topik, dan jadwal keynote speaker pertama akan segera diumumkan melalui website dan media sosial resmi HMIF FT-UNRAM.</p></div>` },
-    { category: "Keynote Speaker #2", title: "Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.", content: `<div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6"><p class="text-base md:text-lg text-gray-500">Detail profil, topik, dan jadwal keynote speaker kedua akan segera diumumkan melalui website dan media sosial resmi HMIF FT-UNRAM.</p></div>` },
-    { category: "Keynote Speaker #3", title: "Eko Fajar Cahyadi S.T., M.T. Ph.D.", content: `<div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6"><p class="text-base md:text-lg text-gray-500">Detail profil, topik, dan jadwal keynote speaker ketiga akan segera diumumkan melalui website dan media sosial resmi HMIF FT-UNRAM.</p></div>` },
-    { category: "Keynote Speaker #4", title: "Dr. Ario Yudo Husodo S.T., M.T", content: `<div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6"><p class="text-base md:text-lg text-gray-500">Detail profil, topik, dan jadwal keynote speaker keempat akan segera diumumkan melalui website dan media sosial resmi HMIF FT-UNRAM.</p></div>` },
-    { category: "Keynote Speaker #5", title: "Mariana Syamsudin, S.T., M.T., Ph.D.", content: `<div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6"><p class="text-base md:text-lg text-gray-500">Detail profil, topik, dan jadwal keynote speaker kelima akan segera diumumkan melalui website dan media sosial resmi HMIF FT-UNRAM.</p></div>` },
-];
+        // Init Lucide icons
+        lucide.createIcons();
 
-document.addEventListener("DOMContentLoaded", () => {
-    lucide.createIcons();
-    AOS.init({ offset: 0, duration: 700, easing: "ease-out-cubic", once: true });
-    initMobileMenu();
-    initCarousel();
-    initModal();
-    initNavbarScroll();
-});
+        // Init AOS
+        AOS.init({
+            offset: 0,
+            duration: 700,
+            easing: 'ease-out-cubic',
+            once: true,
+        });
 
-function initMobileMenu() {
-    const menuBtn    = document.getElementById("mobile-menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const mobileLinks = document.querySelectorAll(".mobile-link");
-    let menuOpen = false;
-    function toggleMenu() {
-        menuOpen = !menuOpen;
-        if (menuOpen) {
-            mobileMenu.classList.remove("hidden");
-            requestAnimationFrame(() => mobileMenu.classList.remove("opacity-0"));
-        } else {
-            mobileMenu.classList.add("opacity-0");
-            setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+        // Mobile Menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+            } else {
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+            }
         }
-    }
-    menuBtn.addEventListener("click", toggleMenu);
-    mobileLinks.forEach(link => link.addEventListener("click", () => { if (menuOpen) toggleMenu(); }));
-}
 
-function initCarousel() {
-    const track   = document.getElementById("apple-carousel");
-    const btnPrev = document.getElementById("btn-prev");
-    const btnNext = document.getElementById("btn-next");
-    if (!track || !btnPrev || !btnNext) return;
-    function updateButtons() {
-        const maxScroll = track.scrollWidth - track.clientWidth;
-        btnPrev.disabled = track.scrollLeft <= 5;
-        btnNext.disabled = track.scrollLeft >= maxScroll - 5;
-    }
-    track.addEventListener("scroll", updateButtons);
-    btnPrev.addEventListener("click", () => track.scrollBy({ left: -320, behavior: "smooth" }));
-    btnNext.addEventListener("click", () => track.scrollBy({ left:  320, behavior: "smooth" }));
-    setTimeout(updateButtons, 100);
-}
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', () => { if (menuOpen) toggleMenu(); }));
 
-function initModal() {
-    const overlay    = document.getElementById("card-modal");
-    const btnClose   = document.getElementById("close-modal");
-    const categoryEl = document.getElementById("modal-category");
-    const titleEl    = document.getElementById("modal-title");
-    const bodyEl     = document.getElementById("modal-body");
-    const cards      = document.querySelectorAll(".apple-card");
-    function openModal(index) {
-        const data = SPEAKER_DATA[index];
-        if (!data) return;
-        categoryEl.textContent = data.category;
-        titleEl.textContent    = data.title;
-        bodyEl.innerHTML       = data.content;
-        overlay.classList.add("active");
-        document.body.classList.add("modal-open");
-    }
-    function closeModal() {
-        overlay.classList.remove("active");
-        document.body.classList.remove("modal-open");
-    }
-    cards.forEach(card => card.addEventListener("click", function() { openModal(parseInt(this.dataset.index)); }));
-    btnClose.addEventListener("click", closeModal);
-    overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
-    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-}
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+        let slideInterval;
 
-function initNavbarScroll() {
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-        const scrolled = window.scrollY > 50;
-        navbar.classList.toggle("bg-white",            !scrolled);
-        navbar.classList.toggle("border-border-color",  !scrolled);
-        navbar.classList.toggle("bg-white/90",           scrolled);
-        navbar.classList.toggle("backdrop-blur-xl",      scrolled);
-        navbar.classList.toggle("border-white/20",       scrolled);
-    });
-}
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % slides.length);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                goToSlide(parseInt(dot.getAttribute('data-dot')));
+                startSlider();
+            });
+        });
+
+        startSlider();
+
+        // Carousel
+        const track = document.getElementById('apple-carousel');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        function updateButtons() {
+            const maxScrollLeft = track.scrollWidth - track.clientWidth;
+            btnPrev.disabled = track.scrollLeft <= 5;
+            btnNext.disabled = track.scrollLeft >= maxScrollLeft - 5;
+        }
+
+        if (track && btnPrev && btnNext) {
+            track.addEventListener('scroll', updateButtons);
+            btnPrev.addEventListener('click', () => { track.scrollBy({ left: -320, behavior: 'smooth' }); });
+            btnNext.addEventListener('click', () => { track.scrollBy({ left: 320, behavior: 'smooth' }); });
+            setTimeout(updateButtons, 100);
+        }
+
+        // Speaker data for modal
+        const speakerData = [
+            {
+                category: "Keynote Speaker",
+                title: "Cahya Damarjati, S.T., M.Eng., Ph.D.",
+                content: `<div class="bg-[#F5F5F7] p-8 rounded-2xl mb-6"><p class="text-base text-text-muted">Foto dan profil lengkap akan segera diumumkan. Pantau terus website dan media sosial resmi Seniforma 2026.</p></div>`
+            },
+            {
+                category: "Keynote Speaker",
+                title: "Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.",
+                content: `<div class="bg-[#F5F5F7] p-8 rounded-2xl mb-6"><p class="text-base text-text-muted">Foto dan profil lengkap akan segera diumumkan. Pantau terus website dan media sosial resmi Seniforma 2026.</p></div>`
+            },
+            {
+                category: "Keynote Speaker",
+                title: "Eko Fajar Cahyadi, S.T., M.T., Ph.D.",
+                content: `<div class="bg-[#F5F5F7] p-8 rounded-2xl mb-6"><p class="text-base text-text-muted">Profil lengkap akan segera diumumkan. Pantau terus website dan media sosial resmi Seniforma 2026.</p></div>`
+            },
+            {
+                category: "Keynote Speaker",
+                title: "Dr. Ario Yudo Husodo, S.T., M.T.",
+                content: `<div class="bg-[#F5F5F7] p-8 rounded-2xl mb-6"><p class="text-base text-text-muted">Profil lengkap akan segera diumumkan. Pantau terus website dan media sosial resmi Seniforma 2026.</p></div>`
+            },
+            {
+                category: "Keynote Speaker",
+                title: "Mariana Syamsudin, S.T., M.T., Ph.D.",
+                content: `<div class="bg-[#F5F5F7] p-8 rounded-2xl mb-6"><p class="text-base text-text-muted">Profil lengkap akan segera diumumkan. Pantau terus website dan media sosial resmi Seniforma 2026.</p></div>`
+            }
+        ];
+
+        const modalOverlay = document.getElementById('card-modal');
+        const btnCloseModal = document.getElementById('close-modal');
+        const categoryEl = document.getElementById('modal-category');
+        const titleEl = document.getElementById('modal-title');
+        const bodyEl = document.getElementById('modal-body');
+        const cards = document.querySelectorAll('.apple-card');
+
+        function openModal(index) {
+            const data = speakerData[index];
+            if (!data) return;
+            categoryEl.textContent = data.category;
+            titleEl.textContent = data.title;
+            bodyEl.innerHTML = data.content;
+            modalOverlay.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', function () {
+                const idx = parseInt(this.getAttribute('data-index'));
+                openModal(idx);
+            });
+        });
+
+        btnCloseModal.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-xl', 'border-white/20');
+                navbar.classList.remove('bg-white', 'border-border-color');
+            } else {
+                navbar.classList.add('bg-white', 'border-border-color');
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-xl', 'border-white/20');
+            }
+        });
     </script>
-
-    </body>
+</body>
 </html>
