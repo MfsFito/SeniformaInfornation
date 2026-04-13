@@ -44,8 +44,271 @@
         <!-- AOS animation CSS -->
         <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-        <!-- Project external stylesheet -->
-        <link rel="stylesheet" href="style.css" />
+        <!-- Inline CSS (previously style.css) -->
+        <style>
+/* ── 1. CSS Variables ──────────────────────────────────────── */
+:root {
+    --bg-primary:   #ffffff;
+    --bg-secondary: #f8fafc;
+    --text-primary: #0f172a;
+    --text-muted:   #64748b;
+    --accent-blue:  #1565C0;
+    --border-color: #e2e8f0;
+}
+
+/* ── 2. Base Reset & Defaults ──────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+/* ── 3. Grid Background Decoration ────────────────────────── */
+.grid-wrapper {
+    position: relative;
+    background-color: #f8fafc;
+}
+
+.grid-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(to right,  #e2e8f0 1px, transparent 1px),
+        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+    background-size: 20px 30px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+}
+
+/* ── 4. Clean Card Component ───────────────────────────────── */
+.clean-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    box-shadow:
+        0 4px  6px -1px rgba(0, 0, 0, 0.05),
+        0 2px  4px -2px rgba(0, 0, 0, 0.025);
+    transition: all 0.2s ease;
+}
+
+.clean-card:hover {
+    box-shadow:
+        0 10px 15px -3px rgba(0, 0, 0, 0.08),
+        0 4px   6px -4px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+    border-color: #cbd5e1;
+}
+
+/* ── 5. Carousel ───────────────────────────────────────────── */
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 2.5rem 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-fade-edge {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    height: 100%;
+    width: 5%;
+    background: linear-gradient(to left, var(--bg-secondary), transparent);
+    pointer-events: none;
+}
+
+/* ── 6. Apple-style Speaker Cards ──────────────────────────── */
+.apple-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 1.5rem;
+    background-color: #f1f5f9;
+    overflow: hidden;
+    flex-shrink: 0;
+    height: 24rem;
+    width: 18rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+@media (min-width: 768px) {
+    .apple-card {
+        height: 35rem;
+        width: 24rem;
+    }
+}
+
+.apple-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, transparent 45%);
+    pointer-events: none;
+}
+
+.apple-card:hover {
+    transform: scale(0.98);
+}
+
+.apple-card-content {
+    position: relative;
+    z-index: 30;
+    padding: 2rem;
+    text-align: left;
+    width: 100%;
+}
+
+.apple-card-img {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+/* ── 7. Modal ──────────────────────────────────────────────── */
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+    z-index: 60;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    max-width: 64rem;
+    width: 90%;
+    margin: 2.5rem auto;
+    padding: 2.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ── 8. Timeline ───────────────────────────────────────────── */
+.timeline-line {
+    width: 2px;
+    background: #e2e8f0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 24px;
+        transform: none;
+    }
+}
+
+.timeline-dot-active {
+    background: var(--accent-blue);
+    box-shadow: 0 0 0 4px #dbeafe;
+}
+
+/* ── 9. Buttons ────────────────────────────────────────────── */
+.btn-primary {
+    background-color: var(--text-primary);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #334155;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline {
+    border: 1px solid var(--border-color);
+    background: white;
+    color: var(--text-primary);
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-secondary);
+    border-color: #cbd5e1;
+}
+
+/* ── 10. Sponsor Marquee Animation ─────────────────────────── */
+@keyframes marquee {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    animation: marquee 25s linear infinite;
+}
+        </style>
     </head>
 
     <body class="antialiased selection:bg-accent-blue selection:text-white">
@@ -74,7 +337,7 @@
 
         <!-- Logo -->
         <a href="#" class="flex items-center gap-3 group">
-            <img src="LOGO_HMIF.png" alt="HMIF Logo" class="w-10 h-10 object-contain" />
+            <img src="img/LOGO_HMIF.png" alt="HMIF Logo" class="w-10 h-10 object-contain" />
             <div class="flex flex-col">
             <span class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Seniforma 2026</span>
             <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF FT-UNRAM</span>
@@ -1001,7 +1264,7 @@
         <div class="absolute inset-y-0 left-0 w-2 bg-yellow-400"></div>
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10">
             <div class="bg-white p-4 rounded-2xl shadow-xl transition-transform group-hover:scale-105 duration-500">
-            <img src="https://1.bp.blogspot.com/-J44taKYsS0U/X96-7AdaY2I/AAAAAAAAAuY/XdaY2i7_KVQz3pCyQnYnq6D_wse-iQ7rgCLcBGAsYHQ/w1600/Logo%2BUNRAM.png"
+            <img src="img/LOGO_UNRAM.png"
                 alt="UNRAM Logo" class="h-24 w-24 object-contain" />
             </div>
             <div class="text-center md:text-left">
@@ -1026,14 +1289,14 @@
             <div data-aos="fade-up" data-aos-delay="0">
                 <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Official Organizer</h4>
                 <div class="flex justify-center gap-10 items-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all">
-                <img src="LOGO_HMIF.png" alt="HMIF" class="h-14 object-contain" />
+                <img src="img/LOGO_HMIF.png" alt="HMIF" class="h-14 object-contain" />
                 </div>
                 <p class="text-xs text-text-muted mt-4 font-semibold">HMIF FT — Universitas Mataram</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="100">
                 <h4 class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-8">Mitra Penyelenggara</h4>
                 <div class="flex justify-center gap-10 items-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all">
-                <img src="https://1.bp.blogspot.com/-J44taKYsS0U/X96-7AdaY2I/AAAAAAAAAuY/XdaY2i7_KVQz3pCyQnYnq6D_wse-iQ7rgCLcBGAsYHQ/w1600/Logo%2BUNRAM.png"
+                <img src="img/LOGO_UNRAM.png"
                     alt="UNRAM" class="h-10 object-contain" />
                 </div>
                 <p class="text-xs text-text-muted mt-4 font-semibold">PSTI FT — Universitas Mataram</p>
@@ -1133,7 +1396,7 @@
             <!-- Brand -->
             <div class="md:col-span-2 space-y-4">
                 <a href="#" class="flex items-center gap-3 group">
-                    <img src="LOGO_HMIF.png" alt="HMIF Logo" class="w-10 h-10 object-contain" />
+                    <img src="img/LOGO_HMIF.png" alt="HMIF Logo" class="w-10 h-10 object-contain" />
                     <div class="flex flex-col">
                     <span class="font-inter font-bold text-lg leading-none tracking-tight text-text-primary">Seniforma 2026</span>
                     <span class="text-[10px] font-bold text-accent-blue tracking-widest uppercase">HMIF FT-UNRAM</span>
@@ -1188,7 +1451,173 @@
 
         <script src="https://unpkg.com/lucide@latest"></script>
         <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-        <script src="script.js"></script>
+
+        <!-- Inline JS (previously script.js) -->
+        <script>
+/* ── Speaker Modal Data ─────────────────────────────────────── */
+const SPEAKER_DATA = [
+{
+    category: "Keynote Speaker #1",
+    title: "Segera Diumumkan",
+    content: `
+        <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+            <p class="text-base md:text-lg text-gray-500">
+                Detail profil, topik, dan jadwal keynote speaker pertama akan segera diumumkan
+                melalui website dan media sosial resmi HMIF FT-UNRAM.
+            </p>
+        </div>`
+},
+{
+    category: "Keynote Speaker #2",
+    title: "Segera Diumumkan",
+    content: `
+        <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+            <p class="text-base md:text-lg text-gray-500">
+            Detail profil, topik, dan jadwal keynote speaker kedua akan segera diumumkan
+            melalui website dan media sosial resmi HMIF FT-UNRAM.
+        </p>
+        </div>`
+},
+{
+    category: "Keynote Speaker #3",
+    title: "Segera Diumumkan",
+    content: `
+        <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+            <p class="text-base md:text-lg text-gray-500">
+            Detail profil, topik, dan jadwal keynote speaker ketiga akan segera diumumkan
+            melalui website dan media sosial resmi HMIF FT-UNRAM.
+            </p>
+        </div>`
+    },
+    {
+        category: "Keynote Speaker #4",
+        title: "Segera Diumumkan",
+        content: `
+        <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+            <p class="text-base md:text-lg text-gray-500">
+            Detail profil, topik, dan jadwal keynote speaker keempat akan segera diumumkan
+            melalui website dan media sosial resmi HMIF FT-UNRAM.
+            </p>
+        </div>`
+    },
+    {
+        category: "Keynote Speaker #5",
+        title: "Segera Diumumkan",
+        content: `
+        <div class="bg-[#F5F5F7] p-8 md:p-10 rounded-2xl mb-6">
+            <p class="text-base md:text-lg text-gray-500">
+            Detail profil, topik, dan jadwal keynote speaker kelima akan segera diumumkan
+            melalui website dan media sosial resmi HMIF FT-UNRAM.
+            </p>
+        </div>`
+    },
+    ];
+
+    /* ── Bootstrap on DOM Ready ─────────────────────────────────── */
+    document.addEventListener("DOMContentLoaded", () => {
+    lucide.createIcons();
+    AOS.init({ offset: 0, duration: 700, easing: "ease-out-cubic", once: true });
+
+    initMobileMenu();
+    initCarousel();
+    initModal();
+    initNavbarScroll();
+    });
+
+    /* ── Mobile Menu ────────────────────────────────────────────── */
+    function initMobileMenu() {
+    const menuBtn    = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+    let menuOpen = false;
+
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+        mobileMenu.classList.remove("hidden");
+        requestAnimationFrame(() => mobileMenu.classList.remove("opacity-0"));
+        } else {
+        mobileMenu.classList.add("opacity-0");
+        setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+        }
+    }
+
+    menuBtn.addEventListener("click", toggleMenu);
+    mobileLinks.forEach((link) =>
+        link.addEventListener("click", () => { if (menuOpen) toggleMenu(); })
+    );
+    }
+
+    /* ── Carousel (Speaker Cards) ───────────────────────────────── */
+    function initCarousel() {
+    const track   = document.getElementById("apple-carousel");
+    const btnPrev = document.getElementById("btn-prev");
+    const btnNext = document.getElementById("btn-next");
+
+    if (!track || !btnPrev || !btnNext) return;
+
+    function updateButtons() {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        btnPrev.disabled = track.scrollLeft <= 5;
+        btnNext.disabled = track.scrollLeft >= maxScroll - 5;
+    }
+
+    track.addEventListener("scroll", updateButtons);
+    btnPrev.addEventListener("click", () => track.scrollBy({ left: -320, behavior: "smooth" }));
+    btnNext.addEventListener("click", () => track.scrollBy({ left:  320, behavior: "smooth" }));
+
+    setTimeout(updateButtons, 100);
+    }
+
+    /* ── Speaker Modal ──────────────────────────────────────────── */
+    function initModal() {
+    const overlay    = document.getElementById("card-modal");
+    const btnClose   = document.getElementById("close-modal");
+    const categoryEl = document.getElementById("modal-category");
+    const titleEl    = document.getElementById("modal-title");
+    const bodyEl     = document.getElementById("modal-body");
+    const cards      = document.querySelectorAll(".apple-card");
+
+    function openModal(index) {
+        const data = SPEAKER_DATA[index];
+        if (!data) return;
+        categoryEl.textContent = data.category;
+        titleEl.textContent    = data.title;
+        bodyEl.innerHTML       = data.content;
+        overlay.classList.add("active");
+        document.body.classList.add("modal-open");
+    }
+
+    function closeModal() {
+        overlay.classList.remove("active");
+        document.body.classList.remove("modal-open");
+    }
+
+    cards.forEach((card) =>
+        card.addEventListener("click", function () {
+        openModal(parseInt(this.dataset.index));
+        })
+    );
+
+    btnClose.addEventListener("click", closeModal);
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+}
+
+/* ── Navbar Scroll Blur Effect ──────────────────────────────── */
+function initNavbarScroll() {
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+        const scrolled = window.scrollY > 50;
+        navbar.classList.toggle("bg-white",           !scrolled);
+        navbar.classList.toggle("border-border-color", !scrolled);
+        navbar.classList.toggle("bg-white/90",          scrolled);
+        navbar.classList.toggle("backdrop-blur-xl",     scrolled);
+        navbar.classList.toggle("border-white/20",      scrolled);
+    });
+}
+        </script>
 
     </body>
     </html>
