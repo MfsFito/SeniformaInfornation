@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMT Acknowledgement — Seniforma 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue: #1565C0;
+            --blue-light: #e8f0fe;
+            --blue-mid: #42A5F5;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top bar */
+        .topbar {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .topbar-brand-name {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .topbar-brand-sub {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .topbar-back {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: white;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .topbar-back:hover { color: var(--blue); border-color: var(--blue-mid); }
+
+        /* Hero strip */
+        .hero-strip {
+            background: linear-gradient(135deg, var(--blue) 0%, #1976D2 60%, #42A5F5 100%);
+            padding: 56px 32px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-strip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+
+        .hero-sub {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-sub2 {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main content */
+        main {
+            flex: 1;
+            max-width: 760px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        /* ACK card — teks wajib CMT ada di sini, plain dan mudah dibaca bot */
+        .ack-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ack-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--blue);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .ack-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .ms-logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue-light);
+            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        /* Microsoft logo via pure CSS squares */
+        .ms-logo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            width: 22px;
+            height: 22px;
+        }
+
+        .ms-logo span:nth-child(1) { background: #F25022; border-radius: 2px; }
+        .ms-logo span:nth-child(2) { background: #7FBA00; border-radius: 2px; }
+        .ms-logo span:nth-child(3) { background: #00A4EF; border-radius: 2px; }
+        .ms-logo span:nth-child(4) { background: #FFB900; border-radius: 2px; }
+
+        .ack-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .ack-card-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+        }
+
+        /* THE ACTUAL CMT REQUIRED TEXT — plain, visible, no tricks */
+        .ack-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+
+        .ack-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .ack-footer-note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .ack-footer-note-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--blue-mid);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Info boxes */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 520px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .ack-card { padding: 28px 24px; }
+            .topbar { padding: 12px 20px; }
+        }
+
+        .info-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .info-box-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--blue-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+
+        .info-box-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .info-box-text {
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* Back link section */
+        .back-section {
+            text-align: center;
+            padding-top: 8px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 999px;
+        }
+
+        .back-link:hover { background: #1251a3; }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 20px 32px;
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        footer strong { color: var(--text); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <!-- Top navigation -->
+    <div class="topbar">
+        <a href="index.html" class="topbar-brand">
+            <div style="display:flex;flex-direction:column;">
+                <span class="topbar-brand-name">Seniforma</span>
+                <span class="topbar-brand-sub">HMIF 2026</span>
+            </div>
+        </a>
+        <a href="index.html" class="topbar-back">&#8592; Kembali ke Beranda</a>
+    </div>
+
+    <!-- Hero strip -->
+    <div class="hero-strip">
+        <div class="hero-badge">CMT · Microsoft</div>
+        <h1 class="hero-title">Acknowledgement</h1>
+        <p class="hero-sub">Seminar Nasional Informatika Universitas Mataram 2026</p><br>
+        <p class="hero-sub2">"National Informatics Conference, University of Mataram 2026"</p>
+    </div>
+
+    <!-- Main -->
+    <main>
+
+        <!-- ACK Card — required CMT text lives here -->
+        <div class="ack-card">
+            <div class="ack-card-header">
+                <div class="ms-logo-wrap">
+                    <div class="ms-logo">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="ack-card-label">Acknowledgement · Conference Management</div>
+                    <div class="ack-card-title">Microsoft CMT Service</div>
+                </div>
+            </div>
+
+            <!-- REQUIRED CMT TEXT — exactly as specified, plain and visible -->
+            <p class="ack-text">
+                The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+            </p>
+
+            <div class="ack-divider"></div>
+        </div>
+
+        <!-- Back button -->
+        <div class="back-section">
+            <a href="index.html" class="back-link">&#8592; &nbsp;Kembali ke Halaman Utama Seniforma 2026</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <strong>&copy; 2026 Seniforma 2026 — HMIF FT-UNRAM.</strong> Seminar Nasional Informatika Universitas Mataram.<br>
+        The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+    </footer>
+
+</body>
+</html>
