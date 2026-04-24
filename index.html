@@ -59,13 +59,18 @@
             --border-color: #e2e8f0;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
 
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            max-width: 100%;
         }
 
         section { scroll-margin-top: 100px; }
@@ -134,15 +139,10 @@
             border-radius: 1.5rem;
             background-color: #f1f5f9;
             overflow: hidden;
-            flex-shrink: 0;
-            height: 24rem;
-            width: 18rem;
+            width: 100%;
+            aspect-ratio: 3/4;
             cursor: pointer;
             transition: transform 0.2s ease;
-        }
-
-        @media (min-width: 768px) {
-            .apple-card { height: 35rem; width: 24rem; }
         }
 
         .apple-card::before {
@@ -159,10 +159,14 @@
         .apple-card-content {
             position: relative;
             z-index: 30;
-            padding: 2rem;
+            padding: 1.25rem;
             text-align: left;
             width: 100%;
             margin-top: auto;
+        }
+
+        @media (min-width: 768px) {
+            .apple-card-content { padding: 1.5rem; }
         }
 
         .apple-card-content p {
@@ -189,7 +193,7 @@
             inset: 0;
             z-index: 50;
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             background: rgba(0,0,0,0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -293,7 +297,7 @@
     </div>
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed top-4 inset-x-0 mx-auto w-[90%] max-w-7xl z-50 transition-all duration-500 bg-white py-3 rounded-2xl shadow-lg border border-border-color">
+    <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] md:w-[90%] max-w-[100vw] xl:max-w-7xl z-50 transition-all duration-500 bg-white py-3 rounded-2xl shadow-lg border border-border-color">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3 group">
                 <img src="img/LOGO_UNRAM.webp" alt="HMIF Logo" class="w-10 h-10 object-contain">
@@ -340,18 +344,23 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="fixed inset-x-0 top-20 mx-auto w-[90%] bg-white/90 backdrop-blur-2xl z-40 hidden flex-col items-center p-8 gap-6 rounded-3xl border border-white/20 shadow-2xl opacity-0 transition-all duration-300">
-            <a href="#hero" class="mobile-link text-lg font-bold text-text-primary">Beranda</a>
-            <a href="#carousel-section" class="mobile-link text-lg font-bold text-text-primary">Speaker</a>
-            <a href="#venue" class="mobile-link text-lg font-bold text-text-primary">Venue</a>
-            <a href="#topik" class="mobile-link text-lg font-bold text-text-primary">Topik</a>
-            <a href="#timeline" class="mobile-link text-lg font-bold text-text-primary">Timeline</a>
-            <a href="#harga" class="mobile-link text-lg font-bold text-text-primary">Biaya</a>
-            <a href="#submitpaper" class="mobile-link btn-primary w-full text-center py-4 mt-2 bg-accent-blue text-white flex items-center justify-center gap-2">
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden flex-col items-center justify-start pt-28 pb-8 px-6 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="w-full max-w-sm bg-white rounded-3xl shadow-2xl p-4 flex flex-col gap-1 border border-border-color">
+            <a href="#hero" class="mobile-link block w-full text-center text-lg font-semibold text-text-primary hover:bg-blue-50 hover:text-accent-blue py-3 rounded-xl transition-colors">Beranda</a>
+            <a href="#carousel-section" class="mobile-link block w-full text-center text-lg font-semibold text-text-primary hover:bg-blue-50 hover:text-accent-blue py-3 rounded-xl transition-colors">Speaker</a>
+            <a href="#venue" class="mobile-link block w-full text-center text-lg font-semibold text-text-primary hover:bg-blue-50 hover:text-accent-blue py-3 rounded-xl transition-colors">Venue</a>
+            <a href="#topik" class="mobile-link block w-full text-center text-lg font-semibold text-text-primary hover:bg-blue-50 hover:text-accent-blue py-3 rounded-xl transition-colors">Topik</a>
+            <a href="#timeline" class="mobile-link block w-full text-center text-lg font-semibold text-text-primary hover:bg-blue-50 hover:text-accent-blue py-3 rounded-xl transition-colors">Timeline</a>
+            <a href="#harga" class="mobile-link block w-full text-center text-lg font-semibold text-text-primary hover:bg-blue-50 hover:text-accent-blue py-3 rounded-xl transition-colors">Biaya</a>
+            <div class="h-px w-full bg-border-color my-2"></div>
+            <a href="#submitpaper" class="mobile-link btn-primary w-full text-center py-4 bg-accent-blue text-white flex items-center justify-center gap-2 rounded-2xl hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/30">
                 <i data-lucide="ticket" class="w-5 h-5"></i> Submit!
             </a>
         </div>
-    </nav>
+    </div>
 
     <!-- SECTION 1: Hero -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-text-primary">
@@ -423,7 +432,7 @@
                     </div>
                     <div class="hidden md:block w-px h-10 bg-white/20"></div>
                     <div class="flex flex-col items-center">
-                        <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Penyelenggara</span>
+                        <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-2">Organizer</span>
                         <div class="flex items-center gap-2 text-white font-bold">
                             <i data-lucide="users" class="w-4 h-4 text-accent-blue"></i>
                             <span class="text-base md:text-lg">HMIF FT-UNRAM</span>
@@ -449,12 +458,12 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center font-inter">
                 <div data-aos="fade-right">
                     <span class="text-xs font-bold uppercase tracking-widest text-accent-blue mb-4 block underline decoration-accent-blue/30 underline-offset-8">Conference Overview</span>
-                    <h3 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">Seminar Nasional Informatika Universitas Mataram 2026</h3>
+                    <h3 class="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8">SENIFORMA 2026 - Seminar Nasional Informatika Universitas Mataram</h3>
                     <h5 class="text-2xl md:text-1xl font-bold text-text-primary tracking-tight mb-8">"National Informatics Conference, University Of Mataram 2026"</h5>
                     
                     <div class="space-y-5 text-base md:text-lg text-text-muted leading-relaxed">
                         <p>
-                            <span class="text-text-primary font-semibold">Seniforma 2026</span> — Seminar Nasional Informatika Universitas Mataram adalah forum ilmiah nasional yang diselenggarakan oleh <span class="text-text-primary font-semibold">Himpunan Mahasiswa Informatika (HMIF) Fakultas Teknik, Universitas Mataram</span>, bekerja sama dengan Program Studi Teknik Informatika (PSTI) FT-UNRAM.
+                            <span class="text-text-primary font-semibold">Seniforma 2026</span> — Seminar Nasional Informatika Universitas Mataram merupakan forum ilmiah tingkat nasional yang diselenggarakan oleh <span class="text-text-primary font-semibold">Program Studi Teknik Informatika (PSTI), Fakultas Teknik, Universitas Mataram</span>, dengan pelaksanaan kegiatan yang diorganisir oleh <span class="text-text-primary font-semibold">Himpunan Mahasiswa Informatika (HMIF) FT-UNRAM.</span>
                         </p>
                         <p>
                             Konferensi ini hadir sebagai wadah bagi para peneliti, akademisi, mahasiswa, dan praktisi untuk mempresentasikan karya ilmiah terbaik mereka, membangun jejaring riset, serta berkontribusi pada kemajuan teknologi informasi di tingkat nasional.
@@ -477,8 +486,7 @@
                         </div>
                         <div class="p-6 bg-white border border-border-color rounded-3xl shadow-sm hover:shadow-md transition-shadow text-center relative overflow-hidden group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 -mr-8 -mt-8 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
-                            <h4 class="text-2xl font-bold text-text-primary mb-1">eBook</h4>
-                            <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Publikasi</p>
+                            <h4 class="font-bold text-text-primary mb-1">Program Book & Prosiding</h4>
                         </div>
                     </div>
                 </div>
@@ -565,16 +573,14 @@
             <p class="text-text-muted mt-3 text-sm">Klik pada foto untuk melihat profil dan topik keynote speaker.</p>
         </div>
 
-        <div class="carousel-container relative w-full">
-            <div class="carousel-fade-edge hidden md:block"></div>
-
-            <div class="carousel-track pl-6 md:pl-[calc((100vw-80rem)/2+1.5rem)] gap-4 md:gap-6" id="apple-carousel">
+        <div class="max-w-7xl mx-auto px-6 mt-10">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6" id="apple-carousel">
 
                 <!-- Speaker 1: Cahya Damarjati -->
                 <div class="apple-card" data-index="0">
                     <div class="apple-card-content">
-                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Cahya Damarjati, S.T., M.Eng., Ph.D.</p>
+                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Cahya Damarjati, S.T., M.Eng., Ph.D.</p>
                     </div>
                     <img src="KeynoteSpeaker/Cahya Damarjati.jpeg" alt="Cahya Damarjati" class="apple-card-img">
                 </div>
@@ -582,50 +588,43 @@
                 <!-- Speaker 2: David Agustriawan -->
                 <div class="apple-card" data-index="1">
                     <div class="apple-card-content">
-                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.</p>
+                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.</p>
                     </div>
                     <img src="KeynoteSpeaker/David Agustriawan.jpeg" alt="David Agustriawan" class="apple-card-img">
                 </div>
 
-                <!-- Speaker 3: Eko Fajar Cahyadi (ada foto) -->
+                <!-- Speaker 3: Eko Fajar Cahyadi -->
                 <div class="apple-card" data-index="2">
                     <div class="apple-card-content">
-                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Eko Fajar Cahyadi, S.T., M.T., Ph.D.</p>
+                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Eko Fajar Cahyadi, S.T., M.T., Ph.D.</p>
                     </div>
                     <img src="KeynoteSpeaker/Eko Fajar Cahyadi.webp" alt="Eko Fajar Cahyadi" class="apple-card-img">
                 </div>
 
-                <!-- Speaker 4: Ario Yudo Husodo (ada foto) -->
+                <!-- Speaker 4: Ario Yudo Husodo -->
                 <div class="apple-card" data-index="3">
                     <div class="apple-card-content">
-                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Dr. Ario Yudo Husodo, S.T., M.T.</p>
+                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Dr. Ario Yudo Husodo, S.T., M.T.</p>
                     </div>
                     <img src="KeynoteSpeaker/Ario Yudo Husodo.webp" alt="Ario Yudo Husodo" class="apple-card-img">
                 </div>
 
-                <!-- Speaker 5: Mariana Syamsudin (ada foto) -->
+                <!-- Speaker 5: Mariana Syamsudin -->
                 <div class="apple-card" data-index="4">
                     <div class="apple-card-content">
-                        <p class="text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">Mariana Syamsudin, S.T., M.T., Ph.D.</p>
+                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
+                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Mariana Syamsudin, S.T., M.T., Ph.D.</p>
                     </div>
                     <img src="KeynoteSpeaker/Mariana Syamsudin.webp" alt="Mariana Syamsudin" class="apple-card-img">
                 </div>
 
-                <div class="w-4 md:w-[33%] flex-shrink-0"></div>
             </div>
-
-            <div class="max-w-7xl mx-auto px-6 mt-6 flex justify-end gap-2">
-                <button id="btn-prev" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
-                    <i data-lucide="arrow-left" class="h-5 w-5 text-gray-600"></i>
-                </button>
-                <button id="btn-next" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">
-                    <i data-lucide="arrow-right" class="h-5 w-5 text-gray-600"></i>
-                </button>
-            </div>
+            <!-- Hidden buttons to prevent JS errors from removed carousel controls -->
+            <button id="btn-prev" class="hidden"></button>
+            <button id="btn-next" class="hidden"></button>
         </div>
     </section>
 
