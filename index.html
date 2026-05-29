@@ -134,35 +134,29 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
             align-items: flex-start;
             border-radius: 1.5rem;
-            background-color: #f1f5f9;
+            background-color: #ffffff;
             overflow: hidden;
             width: 100%;
-            aspect-ratio: 3/4;
             cursor: pointer;
             transition: transform 0.2s ease;
         }
 
         .apple-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 20;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 40%);
-            pointer-events: none;
+            display: none;
         }
 
         .apple-card:hover { transform: scale(0.98); }
 
         .apple-card-content {
-            position: relative;
+            position: absolute;
+            bottom: 0;
+            left: 0;
             z-index: 30;
             padding: 1.25rem;
             text-align: left;
             width: 100%;
-            margin-top: auto;
         }
 
         @media (min-width: 768px) {
@@ -384,24 +378,43 @@
 
         <div class="max-w-7xl mx-auto px-6 w-full relative z-20 py-20 text-center">
             <div class="flex flex-col items-center">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold mb-8" data-aos="fade-down">
-                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-blue"></i>
-                    Official Website Seminar Nasional Informatika Universitas Mataram 2026 <br>
-                    "National Informatics Conference, University Of Mataram 2026"
+                <div class="inline-flex flex-col lg:flex-row items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-medium mb-10 shadow-2xl" data-aos="fade-down">
+                    <div class="flex items-center gap-2 text-center lg:text-left">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-blue-400"></i>
+                        <span>Seminar Nasional Informatika Universitas Mataram</span>
+                    </div>
+                    <span class="hidden lg:block w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    <span class="text-white/80 italic text-center lg:text-left">National Informatics Conference 2026</span>
                 </div>
 
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative mb-12 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8" data-aos="zoom-out" data-aos-delay="100">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-500/40 blur-[100px] rounded-full pointer-events-none"></div>
+                    <h1 class="relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-50 to-white/60 tracking-tighter leading-none drop-shadow-2xl">
+                        SENIFORMA
+                    </h1>
+                    <div class="relative bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-2 md:px-8 md:py-3 rounded-2xl text-4xl md:text-5xl lg:text-6xl font-black transform -rotate-3 shadow-2xl border-2 border-white/20 backdrop-blur-md">
+                        2026
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-4 mt-10 mb-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="h-px w-8 md:w-16 bg-blue-500/50"></div>
+                    <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-blue-400">THEME</span>
+                    <div class="h-px w-8 md:w-16 bg-blue-500/50"></div>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-2" data-aos="fade-up" data-aos-delay="200">
                     Innovation and Emerging Technologies in Informatics
-                </h1>
-                <p class="text-lg md:text-xl font-semibold text-accent-blue mb-4" data-aos="fade-up" data-aos-delay="150">
+                </h2>
+                <p class="text-lg md:text-xl lg:text-2xl font-bold text-blue-400 mb-6" data-aos="fade-up" data-aos-delay="250">
                     for National Digital Advancement
                 </p>
 
-                <p class="text-sm md:text-base text-white/80 mb-10 max-w-2xl font-normal leading-relaxed mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-sm md:text-base text-white/80 mb-12 max-w-3xl font-normal leading-relaxed mx-auto px-4" data-aos="fade-up" data-aos-delay="300">
                     Forum ilmiah nasional yang menghadirkan para peneliti, akademisi, dan praktisi teknologi untuk mendorong kemajuan digital bangsa melalui kolaborasi dan inovasi riset.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto mt-4" data-aos="fade-up" data-aos-delay="350">
                     <a href="#panduan" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-4 w-full sm:w-auto rounded-full font-medium transition-all text-center flex justify-center items-center gap-2">
                         Panduan Umum
                     </a>
@@ -577,50 +590,80 @@
         <div class="max-w-7xl mx-auto px-6 mt-10">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6" id="apple-carousel">
 
-                <!-- Speaker 1: Cahya Damarjati -->
-                <div class="apple-card" data-index="0">
-                    <div class="apple-card-content">
-                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Cahya Damarjati, S.T., M.Eng., Ph.D.</p>
-                    </div>
+            <!-- Speaker 1: Cahya Damarjati -->
+            <div class="apple-card" data-index="0">
+                <div class="relative w-full" style="aspect-ratio: 3/4;">
                     <img src="KeynoteSpeaker/Cahya Damarjati.jpeg" alt="Cahya Damarjati" class="apple-card-img">
                 </div>
+                <div class="bg-white px-3 pt-3 pb-1 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Keynote Speaker</p>
+                    <p class="text-xs font-bold text-text-primary leading-snug">Cahya Damarjati, S.T., M.Eng., Ph.D.</p>
+                </div>
+                <div class="bg-white px-3 pt-2 pb-3 border-t border-gray-100 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Topik</p>
+                    <p class="text-xs text-text-muted leading-snug">Implementasi Self-Sovereign Identity Pada Aplikasi Pesan Peer-to-peer Menggunakan Protocol WebRTC Dan Smart Contract</p>
+                </div>
+            </div>
 
-                <!-- Speaker 2: David Agustriawan -->
-                <div class="apple-card" data-index="1">
-                    <div class="apple-card-content">
-                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.</p>
-                    </div>
+            <!-- Speaker 2: David Agustriawan -->
+            <div class="apple-card" data-index="1">
+                <div class="relative w-full" style="aspect-ratio: 3/4;">
                     <img src="KeynoteSpeaker/David Agustriawan.jpeg" alt="David Agustriawan" class="apple-card-img">
                 </div>
+                <div class="bg-white px-3 pt-3 pb-1 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Keynote Speaker</p>
+                    <p class="text-xs font-bold text-text-primary leading-snug">Assoc. Prof. David Agustriawan, S.Kom., M.Sc., Ph.D.</p>
+                </div>
+                <div class="bg-white px-3 pt-2 pb-3 border-t border-gray-100 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Topik</p>
+                    <p class="text-xs text-text-muted leading-snug">Penerapan Model Explainable Artificial Intelligence untuk prediksi clinical pathway penyakit Kanker menggunakan Data Multiomik (Radiomik, Genomik dan Transkriptomik)</p>
+                </div>
+            </div>
 
-                <!-- Speaker 3: Eko Fajar Cahyadi -->
-                <div class="apple-card" data-index="2">
-                    <div class="apple-card-content">
-                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Eko Fajar Cahyadi, S.T., M.T., Ph.D.</p>
-                    </div>
+            <!-- Speaker 3: Eko Fajar Cahyadi -->
+            <div class="apple-card" data-index="2">
+                <div class="relative w-full" style="aspect-ratio: 3/4;">
                     <img src="KeynoteSpeaker/Eko Fajar Cahyadi.jpg" alt="Eko Fajar Cahyadi" class="apple-card-img">
                 </div>
-
-                <!-- Speaker 4: Ario Yudo Husodo -->
-                <div class="apple-card" data-index="3">
-                    <div class="apple-card-content">
-                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Dr. Ario Yudo Husodo, S.T., M.T.</p>
-                    </div>
-                    <img src="KeynoteSpeaker/Ario Yudo Husodo Unram.jpg" alt="Ario Yudo Husodo" class="apple-card-img">
+                <div class="bg-white px-3 pt-3 pb-1 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Keynote Speaker</p>
+                    <p class="text-xs font-bold text-text-primary leading-snug">Eko Fajar Cahyadi, S.T., M.T., Ph.D.</p>
                 </div>
+                <div class="bg-white px-3 pt-2 pb-3 border-t border-gray-100 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Topik</p>
+                    <p class="text-xs text-text-muted leading-snug">Security & Privacy in VANETs</p>
+                </div>
+            </div>
 
-                <!-- Speaker 5: Mariana Syamsudin -->
-                <div class="apple-card" data-index="4">
-                    <div class="apple-card-content">
-                        <p class="text-xs md:text-sm font-medium text-white/90">Keynote Speaker</p>
-                        <p class="mt-1 md:mt-2 text-sm md:text-base lg:text-sm xl:text-base font-semibold text-white leading-tight">Mariana Syamsudin, S.T., M.T., Ph.D.</p>
-                    </div>
+            <!-- Speaker 4: Wirarama Wedashwara -->
+            <div class="apple-card" data-index="3">
+                <div class="relative w-full" style="aspect-ratio: 3/4;">
+                    <img src="KeynoteSpeaker/Wirarama Wedashwara.jpeg" alt="Wirarama Wedashwara" class="apple-card-img">
+                </div>
+                <div class="bg-white px-3 pt-3 pb-1 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Keynote Speaker</p>
+                    <p class="text-xs font-bold text-text-primary leading-snug">Dr. Eng. Wirarama Wedashwara S.T., M.T.</p>
+                </div>
+                <div class="bg-white px-3 pt-2 pb-3 border-t border-gray-100 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Topik</p>
+                    <p class="text-xs text-text-muted leading-snug">A Scalable IoT Architecture and Federated ARIMA Framework for Privacy-Preserving Cross-Regional Flood Forecasting</p>
+                </div>
+            </div>
+
+            <!-- Speaker 5: Mariana Syamsudin -->
+            <div class="apple-card" data-index="4">
+                <div class="relative w-full" style="aspect-ratio: 3/4;">
                     <img src="KeynoteSpeaker/Mariana Syamsudin.jpg" alt="Mariana Syamsudin" class="apple-card-img">
                 </div>
+                <div class="bg-white px-3 pt-3 pb-1 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Keynote Speaker</p>
+                    <p class="text-xs font-bold text-text-primary leading-snug">Mariana Syamsudin, S.T., M.T., Ph.D.</p>
+                </div>
+                <div class="bg-white px-3 pt-2 pb-3 border-t border-gray-100 w-full">
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent-blue mb-1">Topik</p>
+                    <p class="text-xs text-text-muted leading-snug">Klasifikasi Sentimen Masyarakat terhadap Solar Home System Menggunakan Hybrid Natural Language Processing</p>
+                </div>
+            </div>
 
             </div>
             <!-- Hidden buttons to prevent JS errors from removed carousel controls -->
@@ -687,7 +730,9 @@
 
             <!-- Submit/Template/Panduan Cards -->
             <div class="mt-20 border-t border-border-color pt-16" id="submitpaper">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-aos="fade-up">
+                    
+                    <!-- Submit Paper -->
                     <a href="https://cmt3.research.microsoft.com/SENIFORMA2026/" target="_blank" class="group p-10 bg-text-primary rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
                         <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="send" class="w-6 h-6 text-white"></i>
@@ -697,24 +742,24 @@
                             <p class="text-white/60 text-sm">Unggah naskah Anda melalui portal CMT (Conference Management Toolkit).</p>
                         </div>
                     </a>
-                    <a href="Template/FORMAT_ABSTRAK_SENIFORMA_2026.pdf" target="_blank" class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
-                        <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6">
-                            <i data-lucide="file-text" class="w-6 h-6 text-accent-blue"></i>
-                        </div>
+
+                    <!-- Templates -->
+                    <div class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
                         <div>
-                            <h3 class="text-text-primary text-2xl font-bold mb-2">Template Abstrak</h3>
-                            <p class="text-text-muted text-sm">Download template abstrak resmi Seniforma 2026 (PDF).</p>
+                            <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="files" class="w-6 h-6 text-accent-blue"></i>
+                            </div>
+                            <h3 class="text-text-primary text-2xl font-bold mb-2">Template</h3>
+                            <p class="text-text-muted text-sm mb-6">Download template resmi Seniforma 2026. Tersedia file PDF & Word untuk abstrak dan full paper.</p>
                         </div>
-                    </a>
-                    <a href="Template/FORMAT_FULL_PAPER_SENIFORMA_2026.pdf" target="_blank" class="group p-10 bg-white border border-border-color rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
-                        <div class="w-12 h-12 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-6">
-                            <i data-lucide="download-cloud" class="w-6 h-6 text-accent-blue"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-text-primary text-2xl font-bold mb-2">Template Full Paper</h3>
-                            <p class="text-text-muted text-sm">Download template full paper resmi Seniforma 2026 (PDF).</p>
-                        </div>
-                    </a>
+                        <a href="https://drive.google.com/drive/folders/1OcK26UKHPyVweQE4hnQple40BpNz5zS_" target="_blank"
+                        class="flex items-center gap-2 px-4 py-2.5 bg-accent-blue/10 hover:bg-accent-blue hover:text-white text-accent-blue rounded-xl transition-all w-fit group/btn">
+                            <i data-lucide="folder-open" class="w-4 h-4"></i>
+                            <span class="text-xs font-bold">Format Paper</span>
+                        </a>
+                    </div>
+
+                    <!-- Panduan Penulisan -->
                     <a href="#panduan" class="group p-10 bg-accent-blue rounded-[2.5rem] flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 min-h-[220px]">
                         <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
@@ -724,6 +769,7 @@
                             <p class="text-white/80 text-sm">Baca aturan penulisan &amp; panduan submit via CMT.</p>
                         </div>
                     </a>
+
                 </div>
             </div>
         </div>
@@ -1071,32 +1117,19 @@
                             <i data-lucide="download" class="w-5 h-5 text-accent-blue"></i>
                             Download Template
                         </h3>
-                        <div class="space-y-4">
-                            <a href="Template/FORMAT_ABSTRAK_SENIFORMA_2026.pdf" target="_blank" class="flex items-center justify-between p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue hover:bg-blue-50/30 transition-all group">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center shrink-0">
-                                        <i data-lucide="file-text" class="w-5 h-5 text-red-500"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-text-primary text-sm">Template Abstrak</h4>
-                                        <p class="text-xs text-text-muted">FORMAT_ABSTRAK_SENIFORMA_2026.pdf</p>
-                                    </div>
+                        <a href="https://drive.google.com/drive/folders/1OcK26UKHPyVweQE4hnQple40BpNz5zS_" target="_blank" 
+                        class="flex items-center justify-between p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue hover:bg-blue-50/30 transition-all group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-accent-blue/10 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="folder-open" class="w-5 h-5 text-accent-blue"></i>
                                 </div>
-                                <i data-lucide="download-cloud" class="w-5 h-5 text-accent-blue group-hover:scale-110 transition-transform"></i>
-                            </a>
-                            <a href="Template/FORMAT_FULL_PAPER_SENIFORMA_2026.pdf" target="_blank" class="flex items-center justify-between p-5 bg-secondary rounded-2xl border border-border-color hover:border-accent-blue hover:bg-blue-50/30 transition-all group">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center shrink-0">
-                                        <i data-lucide="file-text" class="w-5 h-5 text-red-500"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-text-primary text-sm">Template Full Paper</h4>
-                                        <p class="text-xs text-text-muted">FORMAT_FULL_PAPER_SENIFORMA_2026.pdf</p>
-                                    </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary text-sm">Template Seniforma 2026</h4>
+                                    <p class="text-xs text-text-muted">Abstrak & Full Paper — PDF & Word tersedia di sini</p>
                                 </div>
-                                <i data-lucide="download-cloud" class="w-5 h-5 text-accent-blue group-hover:scale-110 transition-transform"></i>
-                            </a>
-                        </div>
+                            </div>
+                            <i data-lucide="external-link" class="w-5 h-5 text-accent-blue group-hover:scale-110 transition-transform"></i>
+                        </a>
                     </div>
 
                     <!-- Info boxes -->
@@ -1410,7 +1443,7 @@
             },
             {
                 category: "Keynote Speaker",
-                title: "Dr. Ario Yudo Husodo, S.T., M.T.",
+                title: "Dr. Eng. Wirarama Wedashwara S.T., M.T.",
                 content: `<div class="bg-[#F5F5F7] p-8 rounded-2xl mb-6"><p class="text-base text-text-muted">Profil lengkap akan segera diumumkan. Pantau terus website dan media sosial resmi Seniforma 2026.</p></div>`
             },
             {
